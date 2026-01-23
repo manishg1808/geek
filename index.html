@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeekSupport - Complete IT Support for Small to Medium Organizations</title>
+    <link rel="icon" type="image/png" href="IMAGE/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.42) 0%, rgba(118, 75, 162, 0.42) 100%),
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920') center/cover no-repeat;
+            background-attachment: fixed;
+        }
+        @media (max-width: 768px) {
+            .hero-gradient { background-attachment: scroll; }
+        }
+        .footer-bg {
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.88) 0%, rgba(30, 41, 59, 0.88) 100%),
+                        url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1920') center/cover no-repeat;
+            background-attachment: fixed;
+        }
+        @media (max-width: 768px) {
+            .footer-bg { background-attachment: scroll; }
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .pricing-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .pricing-card:hover::before {
+            left: 100%;
+        }
+        .service-icon {
+            transition: all 0.3s ease;
+        }
+        .service-icon:hover {
+            transform: scale(1.1);
+        }
+        .testimonial-card {
+            position: relative;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 80px;
+            color: rgba(59, 130, 246, 0.1);
+            font-family: 'Georgia', serif;
+        }
+        /* Loading screen animation */
+        #loadingScreen {
+            animation: fadeOut 0.5s ease-in-out 2s forwards;
+        }
+        @keyframes fadeOut {
+            to { opacity: 0; visibility: hidden; }
+        }
+        /* Enhanced button animations */
+        .btn-pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        /* Staggered animations */
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+        .stagger-6 { animation-delay: 0.6s; }
+        /* Enhanced hover effects */
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px) rotate(1deg);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        /* Gradient text effect */
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        /* Glass morphism effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        /* Advanced card animations */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        .card-3d:hover {
+            transform: rotateY(5deg) rotateX(5deg);
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .slide-in-left {
+            animation: slideInLeft 0.6s ease-out;
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .slide-in-right {
+            animation: slideInRight 0.6s ease-out;
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center shrink-0">
+                    <a href="#hero" class="flex items-center focus:outline-none" aria-label="GeekSupport Home">
+                        <img src="IMAGE/logo.png" alt="GeekSupport" class="h-9 sm:h-10 md:h-11 w-auto max-h-12 object-contain object-left block" />
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#pricing" class="text-gray-700 hover:text-blue-600 transition-colors">Pricing & Features</a>
+                    <a href="#services" class="text-gray-700 hover:text-blue-600 transition-colors">Services</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
+                    <div class="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium">
+                        <i class="fas fa-phone mr-2"></i>866-302-0916
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="#pricing" class="block py-2 text-gray-700 hover:text-blue-600">Pricing & Features</a>
+                <a href="#services" class="block py-2 text-gray-700 hover:text-blue-600">Services</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+                <div class="mt-4 bg-red-500 text-white px-4 py-2 rounded-full text-center">
+                    <i class="fas fa-phone mr-2"></i>866-302-0916
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-gradient text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    Complete IT Support for Small to Medium Organizations
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90">
+                    We take full responsibility for your IT management so your business can operate efficiently and securely.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-xl btn-pulse">
+                        Schedule FREE Consultation
+                    </button>
+                    <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-xl glass">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    With GeekSupport as your IT partner you will get:
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover slide-in-left hover-lift stagger-1">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 service-icon">
+                        <i class="fas fa-headset text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Remote IT Helpdesk Support</h3>
+                    <p class="text-gray-600">
+                        Unlimited support for all employees, at home or at the office, to ensure your employees stay connected, productive, and secure.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover slide-in-right hover-lift stagger-2">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 service-icon">
+                        <i class="fas fa-shield-alt text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Managed IT Services</h3>
+                    <p class="text-gray-600">
+                        Cybersecurity and systems monitoring, email security and systems vulnerability scans, preventive maintenance, VPN configuration, employee onboarding and computer lockdown at termination, mobile device management, procurement and provision, and much more.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover slide-in-left hover-lift stagger-3">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6 service-icon">
+                        <i class="fas fa-database text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Data Compliance & Backup</h3>
+                    <p class="text-gray-600">
+                        Guidance to implement a data compliance program, configuration of systems to meet compliance requirements, support for developing a backup strategy and disaster recovery plan, and automatic and secure backup of systems and data.
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <p class="text-gray-600 mb-4">
+                    Plus, transparent, flat pricing – learn more. Enterprise services (support for product or software), network, email and data migrations also available – contact us for details.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Get Unlimited IT Support</h2>
+            <p class="text-xl mb-8 opacity-90">Starting at $75/month per user • Minimum of 3 users</p>
+            <button class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+                Schedule your FREE consultation!
+            </button>
+        </div>
+    </section>
+
+    <!-- Devices Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Complete tech support on all devices you and your business count on
+                </h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-wifi text-2xl text-blue-600"></i>
+                    </div>
+                    <p class="font-semibold text-gray-900">WI-FI</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-print text-2xl text-green-600"></i>
+                    </div>
+                    <p class="font-semibold text-gray-900">Printers</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-laptop text-2xl text-purple-600"></i>
+                    </div>
+                    <p class="font-semibold text-gray-900">Laptops</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-desktop text-2xl text-red-600"></i>
+                    </div>
+                    <p class="font-semibold text-gray-900">PC/Mac</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tablet-alt text-2xl text-yellow-600"></i>
+                    </div>
+                    <p class="font-semibold text-gray-900">Tablets</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-mobile-alt text-2xl text-indigo-600"></i>
+                    </div>
+                    <p class="font-semibold text-gray-900">iOS/Android</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-network-wired text-2xl text-pink-600"></i>
+                    </div>
+                    <p class="font-semibold text-gray-900">Network Setup</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <p class="text-2xl font-bold text-gray-900">and more...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Benefits of outsourcing your IT support with GeekSupport
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-users text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Your Very Own Dedicated IT Team</h3>
+                    <p class="text-gray-600">
+                        GeekSupport delivers expert remote IT services led by our US-based technicians to answer questions, fix issues, and keep your business running smoothly and securely.
+                    </p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-bullseye text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Cutting-edge Technology</h3>
+                    <p class="text-gray-600">
+                        We use cutting edge data technology to prevent issues from happening and, if they do arise, we are able to quickly find and resolve the problem.
+                    </p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-robot text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Service Automation</h3>
+                    <p class="text-gray-600">
+                        GeekSupport invests in automation to increase the accuracy, quality, and efficiency of all the IT work we do.
+                    </p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-clock text-3xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Quick Remote Response</h3>
+                    <p class="text-gray-600">
+                        Fully remote tech experts available to help you and your team by phone, email, or online chat.
+                    </p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-dollar-sign text-3xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Flat pricing. Fair contracts.</h3>
+                    <p class="text-gray-600">
+                        Our pricing is fair and transparent. There is no costcutting or billing surprises to support you and your business.
+                    </p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-lock text-3xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Safe & Secure</h3>
+                    <p class="text-gray-600">
+                        All clients have access to our licensed security suite that provides cybersecurity protection, full disk encryption, vulnerability scans, threat defense, and more.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Choose the plan that is right for your business
+                </h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">
+                    GeekSupport offers comprehensive IT support plans designed to cater to various business requirements, whether you operate from your home or collaborate in an office setting with your team. Now offering the GeekPremiumMB package for a fixed rate of $225/month, specifically tailored for micro businesses with a team of up to three employees.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- PremiumMB Plan -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover pricing-card card-3d hover-lift">
+                    <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 text-center">
+                        <h3 class="text-2xl font-bold mb-2">PremiumMB</h3>
+                        <div class="text-4xl font-bold mb-2">$225<span class="text-lg font-normal">/month</span></div>
+                        <p class="text-blue-100">Up to 3 users</p>
+                    </div>
+                    <div class="p-8">
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>Tailored for micro businesses with a team of up to three employees</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>Flat, transparent pricing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>Comprehensive IT Support</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>Access to all GeekPremium features</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>Includes support for 2 devices per user</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>And much more...</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover pricing-card card-3d hover-lift border-4 border-blue-500 relative">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <span class="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-medium">Most Popular</span>
+                    </div>
+                    <div class="bg-blue-600 text-white p-8 text-center">
+                        <h3 class="text-2xl font-bold mb-2">Premium</h3>
+                        <div class="text-4xl font-bold mb-2">$75<span class="text-lg font-normal">/month per person</span></div>
+                        <p class="text-blue-100">4+ Users</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="mb-6">
+                            <h4 class="font-bold text-gray-900 mb-3">Help Desk Support</h4>
+                            <ul class="space-y-2 text-sm text-gray-600 mb-4">
+                                <li>• Unlimited phone, chat, and email support</li>
+                                <li>• Support for Mac and PC - 2 devices per user</li>
+                                <li>• Troubleshooting, regular tune-ups, and updates</li>
+                            </ul>
+                        </div>
+                        <div class="mb-6">
+                            <h4 class="font-bold text-gray-900 mb-3">Support for Remote & On-Prem Workforce</h4>
+                            <ul class="space-y-2 text-sm text-gray-600 mb-4">
+                                <li>• New employee onboarding & device configuration</li>
+                                <li>• VPN configuration & home network troubleshooting</li>
+                            </ul>
+                        </div>
+                        <div class="mb-6">
+                            <h4 class="font-bold text-gray-900 mb-3">Backups & Disaster Recovery</h4>
+                            <ul class="space-y-2 text-sm text-gray-600 mb-4">
+                                <li>• Automatic & secure backup of systems and data</li>
+                                <li>• Backup strategy & support for disaster recovery planning</li>
+                            </ul>
+                        </div>
+                        <div class="mb-8">
+                            <h4 class="font-bold text-gray-900 mb-3">Systems Monitoring & Cybersecurity</h4>
+                            <ul class="space-y-2 text-sm text-gray-600">
+                                <li>• Access to GeekSupport's licensed security suite</li>
+                                <li>• Advanced cloud-based threat defense</li>
+                                <li>• Email scans for malware and malicious software</li>
+                                <li>• Network, computer, & systems vulnerability scans</li>
+                            </ul>
+                        </div>
+                        <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Premium+ Plan -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover pricing-card card-3d hover-lift">
+                    <div class="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-8 text-center">
+                        <h3 class="text-2xl font-bold mb-2">Premium+</h3>
+                        <div class="text-4xl font-bold mb-2">$95<span class="text-lg font-normal">/month per person</span></div>
+                        <p class="text-purple-100">All Premium Features</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="mb-6">
+                            <h4 class="font-bold text-gray-900 mb-3">Mobile Device Management</h4>
+                            <ul class="space-y-2 text-sm text-gray-600 mb-4">
+                                <li>• Monitoring, management, & security</li>
+                                <li>• Device enrollment, configuration, & troubleshooting</li>
+                                <li>• Computer lockdown at termination</li>
+                            </ul>
+                        </div>
+                        <div class="mb-6">
+                            <h4 class="font-bold text-gray-900 mb-3">Procurement & Provisioning <span class="text-xs text-gray-500">(other fees apply)</span></h4>
+                            <ul class="space-y-2 text-sm text-gray-600 mb-4">
+                                <li>• Research & recommendations</li>
+                                <li>• Device procurement from ordering to delivery</li>
+                                <li>• Secure inventory storage and management</li>
+                                <li>• Device provisioning</li>
+                                <li>• Lease options available</li>
+                            </ul>
+                        </div>
+                        <div class="mb-6">
+                            <h4 class="font-bold text-gray-900 mb-3">Data Compliance</h4>
+                        </div>
+                        <div class="mb-8">
+                            <h4 class="font-bold text-gray-900 mb-3">Virtual CIO <span class="text-xs text-gray-500">(4 seats minimum required)</span></h4>
+                            <ul class="space-y-2 text-sm text-gray-600">
+                                <li>• Resource who acts as a trusted technology advisor</li>
+                                <li>• Technology assessment and plan</li>
+                            </ul>
+                        </div>
+                        <button class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#pricing" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                    Learn More About Pricing
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Find out why our customers rate us 5 stars!
+                </h2>
+                <div class="flex justify-center mb-8">
+                    <a href="https://www.trustpilot.com/review/geeksupport.com" target="_blank" class="text-yellow-400 text-3xl">
+                        ★★★★★
+                    </a>
+                </div>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-quote-left text-4xl text-gray-300"></i>
+                    </div>
+                    <blockquote class="text-xl text-gray-700 text-center mb-6 italic">
+                        "Our company has been fortunate to have the excellent services of GeekSupport. The team equipped our company with the best tools and resources to be protected and run successfully without interruptions in our daily processes. They are there when we need them the most. Thank you GeekSupport!"
+                    </blockquote>
+                    <div class="text-center">
+                        <cite class="font-semibold text-gray-900">— EHS LLC</cite>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Powering IT support for 20+ industries in all 50 states
+                </h2>
+                <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center mx-auto mb-8">
+                    <img src="https://geeksupport.com/wp-content/uploads/2025/04/MAP@2x.png" alt="US Map" class="w-24 h-24 object-contain">
+                </div>
+                <h3 class="text-2xl font-semibold mb-4">Led by US-based IT Experts, Powered by a Global Team</h3>
+                <p class="text-xl opacity-90 mb-12">
+                    Every client is assigned a US-based tech lead that understands your business inside-out.
+                </p>
+                <h4 class="text-xl font-semibold mb-8">Serving SMBs and Self-Employed Professionals in many industries:</h4>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+                    <i class="fas fa-calculator text-blue-400 mr-3"></i>
+                    Accounting & Business Services
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+                    <i class="fas fa-chart-line text-green-400 mr-3"></i>
+                    Advisory & Financial Services
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+                    <i class="fas fa-gavel text-purple-400 mr-3"></i>
+                    Lawyers & Law Firms
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+                    <i class="fas fa-bullhorn text-yellow-400 mr-3"></i>
+                    Marketing and Advertising
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+                    <i class="fas fa-home text-red-400 mr-3"></i>
+                    Real Estate
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+                    <i class="fas fa-tools text-indigo-400 mr-3"></i>
+                    Construction
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+                    <i class="fas fa-user-tie text-pink-400 mr-3"></i>
+                    Freelancers, Independent Contractors and Consultants
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+                    <i class="fas fa-stethoscope text-teal-400 mr-3"></i>
+                    Medical and Dental Practices
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg col-span-full md:col-span-2 lg:col-span-3 text-center hover:bg-gray-700 transition-colors cursor-pointer">
+                    <i class="fas fa-plus text-blue-400 mr-3"></i>
+                    And Many More...
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+                    Learn how GeekSupport can help you and your business
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact-form" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Ready to Get Started?
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Contact us today for a free consultation and discover how GeekSupport can transform your IT infrastructure.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+                <form id="contactForm" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                                   placeholder="John">
+                        </div>
+                        <div>
+                            <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                                   placeholder="Doe">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                            <input type="email" id="email" name="email" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                                   placeholder="john@company.com">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" id="phone" name="phone"
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                                   placeholder="(555) 123-4567">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
+                        <input type="text" id="company" name="company"
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                               placeholder="Your Company Name">
+                    </div>
+
+                    <div>
+                        <label for="companySize" class="block text-sm font-medium text-gray-700 mb-2">Company Size</label>
+                        <select id="companySize" name="companySize"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
+                            <option value="">Select company size</option>
+                            <option value="1-5">1-5 employees</option>
+                            <option value="6-10">6-10 employees</option>
+                            <option value="11-25">11-25 employees</option>
+                            <option value="26-50">26-50 employees</option>
+                            <option value="51-100">51-100 employees</option>
+                            <option value="100+">100+ employees</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service Interest</label>
+                        <select id="service" name="service"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
+                            <option value="">Select a service</option>
+                            <option value="premium">GeekPremium</option>
+                            <option value="premium-mb">GeekPremiumMB</option>
+                            <option value="premium-plus">GeekPremium+</option>
+                            <option value="consultation">Free Consultation</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="4"
+                                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-vertical"
+                                  placeholder="Tell us about your IT needs..."></textarea>
+                    </div>
+
+                    <div class="flex items-start">
+                        <input type="checkbox" id="newsletter" name="newsletter" class="mt-1">
+                        <label for="newsletter" class="ml-3 text-sm text-gray-600">
+                            Subscribe to our newsletter for IT tips and updates
+                        </label>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" id="submitBtn"
+                                class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <span id="btnText">Send Message</span>
+                            <i class="fas fa-spinner fa-spin ml-2 hidden" id="loadingIcon"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Success/Error Messages -->
+                <div id="successMessage" class="hidden mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <p class="text-green-700">Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.</p>
+                    </div>
+                </div>
+
+                <div id="errorMessage" class="hidden mt-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <div class="flex items-center">
+                        <i class="fas fa-exclamation-circle text-red-500 mr-3"></i>
+                        <p class="text-red-700">Sorry, there was an error sending your message. Please try again or call us directly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-blue-600 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-4">Stay Updated with IT Best Practices</h2>
+            <p class="text-xl opacity-90 mb-8">
+                Get weekly tips, security alerts, and industry insights delivered to your inbox.
+            </p>
+            <div class="max-w-md mx-auto">
+                <form id="newsletterForm" class="flex flex-col sm:flex-row gap-4">
+                    <input type="email" id="newsletterEmail" placeholder="Enter your email address"
+                           class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white">
+                    <button type="submit" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Subscribe
+                    </button>
+                </form>
+                <p class="text-sm opacity-75 mt-4">No spam, unsubscribe anytime.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer-bg text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <a href="#hero" class="inline-block mb-6 focus:outline-none" aria-label="GeekSupport Home">
+                        <img src="IMAGE/logo.png" alt="GeekSupport" class="h-10 sm:h-11 w-auto max-h-12 object-contain object-left block" />
+                    </a>
+                    <p class="text-gray-300 mb-6">
+                        From startups to Fortune 500 companies, one aspect they all have in common is the need for quality reliable IT support. GeekSupport provides best-in-class, fully remote, IT Support and Tech Services for startups, small and mid-size companies, and self-employed professionals.
+                    </p>
+                    <a href="https://geeksupport.screenconnect.com/" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-block">
+                        Get Remote Support
+                    </a>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#pricing" class="text-gray-300 hover:text-white transition-colors">Pricing & Features</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#contact-form" class="text-gray-300 hover:text-white transition-colors">Contact Form</a></li>
+                        <li><a href="https://geeksupport.com/terms-conditions/" class="text-gray-300 hover:text-white transition-colors">Terms & Conditions</a></li>
+                        <li><a href="https://geeksupport.com/privacy-policy/" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Contact Us</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-blue-400 mr-3"></i>
+                            <a href="tel:8663020916" class="text-gray-300 hover:text-white transition-colors">866-302-0916</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-blue-400 mr-3"></i>
+                            <span class="text-gray-300">24/7 Support Available</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-blue-400 mr-3"></i>
+                            <span class="text-gray-300">support@geeksupport.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <h5 class="text-sm font-medium mb-3">Accepted Payments</h5>
+                        <div class="flex space-x-2">
+                            <i class="fab fa-cc-visa text-2xl text-gray-400"></i>
+                            <i class="fab fa-cc-mastercard text-2xl text-gray-400"></i>
+                            <i class="fab fa-cc-amex text-2xl text-gray-400"></i>
+                            <i class="fab fa-cc-paypal text-2xl text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400">
+                    Copyright © GeekSupport 2025 All Rights Reserved.
+                </p>
+                <div class="mt-4 flex justify-center space-x-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-gray-300 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-gray-300 transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-gray-300 transition-colors">Cookie Policy</a>
+                    <a href="#" class="hover:text-gray-300 transition-colors">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

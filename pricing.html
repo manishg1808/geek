@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing & Features - GeekSupport</title>
+    <link rel="icon" type="image/png" href="IMAGE/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .hero-gradient {
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80') center/cover no-repeat;
+            background-attachment: fixed;
+            z-index: 0;
+        }
+        .hero-gradient::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(44, 45, 47, 0.75) 0%, rgba(87, 81, 93, 0.75) 100%);
+            z-index: 1;
+        }
+        .hero-gradient > * {
+            position: relative;
+            z-index: 2;
+        }
+        @media (max-width: 768px) {
+            .hero-gradient::before {
+                background-attachment: scroll;
+                height: 100%;
+            }
+        }
+        .footer-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        .island {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: scale(1);
+            background: rgb(52, 65, 73);
+            filter: url(#octave1) brightness(2.25) contrast(1.05) blur(0.25rem);
+            z-index: 0;
+        }
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        .pricing-table {
+            min-width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        .pricing-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .pricing-table th:first-child {
+            text-align: left;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        }
+        .pricing-table td {
+            padding: 1rem;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .pricing-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+            background-color: #f9fafb;
+        }
+        .pricing-table tr:nth-child(even) td:first-child {
+            background-color: #f3f4f6;
+        }
+        .pricing-table tr:hover {
+            background-color: #f9fafb;
+        }
+        .check-icon {
+            color: #10b981;
+            font-size: 1.5rem;
+        }
+        .plan-header {
+            position: relative;
+        }
+        .popular-badge {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: #fbbf24;
+            color: #78350f;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .section-header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important;
+            color: white !important;
+            font-weight: 700 !important;
+            font-size: 1.1rem !important;
+            text-align: left !important;
+            padding: 1.25rem 1rem !important;
+        }
+        .section-header td {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important;
+            color: white !important;
+            border: none !important;
+            text-align: left !important;
+        }
+        .section-header:hover {
+            background: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%) !important;
+        }
+        .section-header td:first-child {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important;
+        }
+        @media (max-width: 768px) {
+            .pricing-table {
+                font-size: 0.875rem;
+            }
+            .pricing-table th,
+            .pricing-table td {
+                padding: 0.5rem;
+            }
+            .section-header {
+                font-size: 0.95rem !important;
+                padding: 0.75rem 0.5rem !important;
+            }
+        }
+        /* Mobile Call Button Zoom Animation */
+        .mobile-call-btn {
+            animation: zoomInOut 2s ease-in-out infinite;
+        }
+        @keyframes zoomInOut {
+            0%, 100% { 
+                transform: scale(1);
+            }
+            50% { 
+                transform: scale(1.2);
+            }
+        }
+        .cta-pattern-bg {
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-pattern-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.08) 2px, transparent 2px),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.08) 2px, transparent 2px),
+                linear-gradient(45deg, transparent 48%, rgba(59, 130, 246, 0.03) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(139, 92, 246, 0.03) 50%, transparent 52%);
+            background-size: 60px 60px, 60px 60px, 120px 120px, 120px 120px;
+            background-position: 0 0, 30px 30px, 0 0, 60px 60px;
+            opacity: 1;
+            animation: ctaPatternMove 25s linear infinite;
+        }
+        .cta-pattern-bg::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: ctaFloat 20s ease-in-out infinite;
+        }
+        @keyframes ctaPatternMove {
+            0% { 
+                background-position: 0 0, 30px 30px, 0 0, 60px 60px;
+            }
+            100% { 
+                background-position: 60px 60px, 90px 90px, 120px 120px, 180px 180px;
+            }
+        }
+        @keyframes ctaFloat {
+            0%, 100% { 
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            33% { 
+                transform: translate(-40px, -40px) rotate(120deg) scale(1.1);
+            }
+            66% { 
+                transform: translate(-80px, -80px) rotate(240deg) scale(1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center shrink-0">
+                    <a href="index.html" class="flex items-center focus:outline-none" aria-label="GeekSupport Home">
+                        <img src="IMAGE/logo.png" alt="GeekSupport" class="h-9 sm:h-10 md:h-11 w-auto max-h-12 object-contain object-left block" />
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="pricing.html" class="text-gray-700 hover:text-blue-600 transition-colors font-semibold">Pricing & Features</a>
+                    <a href="index.html#services" class="text-gray-700 hover:text-blue-600 transition-colors">Services</a>
+                    <a href="index.html#contact-form" class="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
+                    <div class="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium">
+                        <i class="fas fa-phone mr-2"></i>866-302-0916
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center gap-3">
+                    <a href="tel:8663020916" class="mobile-call-btn text-red-500 p-2.5 flex items-center justify-center">
+                        <i class="fas fa-phone text-xl"></i>
+                    </a>
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="pricing.html" class="block py-2 text-gray-700 hover:text-blue-600 font-semibold">Pricing & Features</a>
+                <a href="index.html#services" class="block py-2 text-gray-700 hover:text-blue-600">Services</a>
+                <a href="index.html#contact-form" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+                <div class="mt-4 bg-red-500 text-white px-4 py-2 rounded-full text-center">
+                    <i class="fas fa-phone mr-2"></i>866-302-0916
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                    Pricing and Features
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-4xl mx-auto">
+                    GeekSupport offers comprehensive IT support plans designed to cater to various business requirements, whether you operate from your home or collaborate in an office setting with your team. Now offering the GeekPremiumMB package for a fixed rate of $225/month, specifically tailored for micro businesses with a team of up to three employees.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Table Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Complete Feature Comparison
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Compare all features across our three comprehensive IT support plans
+                </p>
+            </div>
+
+            <div class="table-container bg-white rounded-xl shadow-xl overflow-hidden">
+                <table class="pricing-table w-full">
+                    <thead>
+                        <tr>
+                            <th class="plan-header">
+                                Services
+                                <span class="popular-badge">Most Popular</span>
+                            </th>
+                            <th>
+                                <div class="text-lg font-bold">GEEKPremiumMB</div>
+                                <div class="text-2xl font-bold mt-2">$225/month</div>
+                                <div class="text-sm mt-1 opacity-90">Fixed Rate</div>
+                            </th>
+                            <th>
+                                <div class="text-lg font-bold">GEEKPremium</div>
+                                <div class="text-2xl font-bold mt-2">$75/month</div>
+                                <div class="text-sm mt-1 opacity-90">Per person</div>
+                            </th>
+                            <th>
+                                <div class="text-lg font-bold">GEEKPremium+</div>
+                                <div class="text-2xl font-bold mt-2">$95/month</div>
+                                <div class="text-sm mt-1 opacity-90">Per person</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Number of Users</td>
+                            <td>Up to 3</td>
+                            <td>4+</td>
+                            <td>4+</td>
+                        </tr>
+                        <tr class="section-header">
+                            <td colspan="4">Help Desk Support</td>
+                        </tr>
+                        <tr>
+                            <td>Unlimited phone, chat, and email support</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Ticket system</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Support for Mac and PC – desktop, mobile & tablet devices (max of 2 devices per user)</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Device performance and speed tuneups</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Troubleshooting, patching and updates to hardware, applications, and devices</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>New software installation</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr class="section-header">
+                            <td colspan="4">Preventative Tune-Ups</td>
+                        </tr>
+                        <tr>
+                            <td>Adware/spyware clean up, updates, virus protection verification, temporary files clean up, hard drive defragmentation, and startup optimization</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr class="section-header">
+                            <td colspan="4">Support for In-Office, Remote, or Hybrid Teams</td>
+                        </tr>
+                        <tr>
+                            <td>Help desk</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>New employee onboarding & computer configuration</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Network Troubleshooting</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>VPN configuration for secure remote access to company networks</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr class="section-header">
+                            <td colspan="4">Backups and Disaster Recovery</td>
+                        </tr>
+                        <tr>
+                            <td>Backup strategy and solutions</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Automatic and secure backup of systems and data</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Support for disaster recovery planning</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr class="section-header">
+                            <td colspan="4">Systems Setup</td>
+                        </tr>
+                        <tr>
+                            <td>VPN Configuration</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Cloud network setup, configuration, and updates</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Email setup and configuration</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Firewall configuration and updates</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr class="section-header">
+                            <td colspan="4">Systems Monitoring and Cybersecurity</td>
+                        </tr>
+                        <tr>
+                            <td>Access to GeekSupport's licensed security suite</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Endpoint protection with advanced multilayered protection for computers</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Server security with real-time protection for your company data and files</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Full disk encryption with robust solutions for systems disks, partitions, or entire devices</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Advanced cloud-based threat defense against zero-day and never-before-seen threat types</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Extended detection & response delivering prevention, enhanced visibility and remediation</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Email security scans for malware and malicious software</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Network, computer, and systems security scans to detect vulnerabilities</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr class="section-header">
+                            <td colspan="4">Mobile Device Management (MDM)</td>
+                        </tr>
+                        <tr>
+                            <td>Monitoring, management, and security of all mobile devices connected to your network</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Device enrollment, configuration, updates, application management, and troubleshooting</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Device encryption</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Computer lockdown at termination</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr class="section-header">
+                            <td colspan="4">Procurement & Provisioning (exclude cost of devices and shipping; other fees may apply)</td>
+                        </tr>
+                        <tr>
+                            <td>IT infrastructure, devices, and software research and recommendations</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Device procurement from order placement through delivery to your specified location</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Secure inventory storage and management</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Device imaging and re-imaging using mobile device management software</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Device provisioning, prior to shipping to end user, to ensure device is setup with the operating system, software, and credentials required for each individual employee</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Purchase of new devices based on your business needs, brand preferences, budget, and functionality requirements</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Lease options available (contact us for more information)</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr class="section-header">
+                            <td colspan="4">Data Compliance</td>
+                        </tr>
+                        <tr>
+                            <td>Guidance to Implement and maintain a data security and privacy compliance program that meets laws and regulations requirements applicable to your business</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Implementation and/or configuration of hardware and systems necessary to meet compliance</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr class="section-header">
+                            <td colspan="4">Virtual CIO (5 seats minimum required)</td>
+                        </tr>
+                        <tr>
+                            <td>Resource who acts as a trusted technology advisor</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Technology assessment and plan</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-12 bg-blue-50 border-l-4 border-blue-400 p-6 rounded-lg">
+                <div class="flex items-start">
+                    <i class="fas fa-phone-alt text-blue-600 text-2xl mr-4 mt-1"></i>
+                    <div>
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">Fee Based Services - CALL US</h3>
+                        <ul class="text-blue-700 space-y-1">
+                            <li>• Network, email, and data migrations</li>
+                            <li>• Enterprise services (product or software support)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-pattern-bg py-8 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <!-- Heading -->
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-gray-900">
+                    Questions About Our Pricing?
+                </h2>
+                
+                <!-- Subheading -->
+                <p class="text-base md:text-lg text-gray-700 mb-4 max-w-2xl mx-auto leading-relaxed">
+                    We're here to help. Contact our team or schedule a consultation to learn more about how GeekSupport can help your business operate more efficiently and securely.
+                </p>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4">
+                    <a href="index.html#contact-form" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-200 inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        <span>Contact Us</span>
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </a>
+                    
+                    <a href="tel:8663020916" class="w-full sm:w-auto bg-transparent border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold text-sm hover:bg-blue-600 hover:text-white transition-all duration-200 inline-flex items-center justify-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105">
+                        <i class="fas fa-phone"></i>
+                        <span>866-302-0916</span>
+                    </a>
+                </div>
+                
+                <!-- Trust Indicators -->
+                <div class="pt-3 border-t border-gray-200">
+                    <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-shield-alt text-blue-600"></i>
+                            <span>Secure & Compliant</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-lock text-blue-600"></i>
+                            <span>Data Protected</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-headset text-blue-600"></i>
+                            <span>24/7 Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-bg text-white py-8">
+        <div class="island">
+            <svg height="0" width="0">
+                <filter id="octave1">
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.002"
+                        numOctaves="8"
+                        seed="4"
+                        result="o1"
+                    ></feTurbulence>
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.004"
+                        numOctaves="8"
+                        seed="4"
+                        result="o2"
+                    ></feTurbulence>
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.0005"
+                        numOctaves="8"
+                        seed="4"
+                        result="o3"
+                    ></feTurbulence>
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.009"
+                        numOctaves="8"
+                        seed="4"
+                        result="o4"
+                    ></feTurbulence>
+
+                    <feMerge result="finalIsland">
+                        <feMergeNode in="o1"></feMergeNode>
+                        <feMergeNode in="o3"></feMergeNode>
+                        <feMergeNode in="o1"></feMergeNode>
+                        <feMergeNode in="o3"></feMergeNode>
+                    </feMerge>
+
+                    <feGaussianBlur
+                        in="finalIsland"
+                        stdDeviation="5"
+                        result="noiseo"
+                    ></feGaussianBlur>
+
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.004"
+                        numOctaves="8"
+                        seed="4"
+                        result="o1"
+                    ></feTurbulence>
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.008"
+                        numOctaves="8"
+                        seed="4"
+                        result="o2"
+                    ></feTurbulence>
+
+                    <feMerge result="noiseo">
+                        <feMergeNode in="o2"></feMergeNode>
+                        <feMergeNode in="o4"></feMergeNode>
+                        <feMergeNode in="noiseo"></feMergeNode>
+                    </feMerge>
+
+                    <feGaussianBlur
+                        in="noiseo"
+                        stdDeviation="5"
+                        result="noiseo"
+                    ></feGaussianBlur>
+
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.008"
+                        numOctaves="8"
+                        seed="4"
+                        result="o1"
+                    ></feTurbulence>
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.01"
+                        numOctaves="8"
+                        seed="4"
+                        result="o2"
+                    ></feTurbulence>
+
+                    <feMerge result="noiseo">
+                        <feMergeNode in="o1"></feMergeNode>
+                        <feMergeNode in="o1"></feMergeNode>
+                        <feMergeNode in="noiseo"></feMergeNode>
+                    </feMerge>
+
+                    <feGaussianBlur
+                        in="noiseo"
+                        stdDeviation="5"
+                        result="noiseo"
+                    ></feGaussianBlur>
+
+                    <feDiffuseLighting
+                        in="noiseo"
+                        surfaceScale="12"
+                        diffuseConstant="1"
+                        lighting-color="#11111"
+                        result="lit"
+                    >
+                        <feDistantLight azimuth="0" elevation="1"></feDistantLight>
+                    </feDiffuseLighting>
+
+                    <feBlend in="lit" in2="SourceGraphic" mode="normal"></feBlend>
+                </filter>
+            </svg>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 footer-content">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                <div>
+                    <a href="index.html" class="inline-block mb-3 focus:outline-none" aria-label="GeekSupport Home">
+                        <img src="IMAGE/logo.png" alt="GeekSupport" class="h-8 sm:h-9 w-auto max-h-10 object-contain object-left block" />
+                    </a>
+                    <p class="text-gray-300 mb-0 text-sm leading-relaxed">
+                        Your trusted partner for comprehensive IT support. We deliver reliable, secure, and efficient technology solutions to help your business thrive.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-base font-semibold mb-3">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="pricing.html" class="text-gray-300 hover:text-white transition-colors">Pricing & Features</a></li>
+                        <li><a href="index.html#services" class="text-gray-300 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="index.html#contact-form" class="text-gray-300 hover:text-white transition-colors">Contact Form</a></li>
+                        <li><a href="terms-conditions.html" class="text-gray-300 hover:text-white transition-colors">Terms & Conditions</a></li>
+                        <li><a href="privacy-policy.html" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-base font-semibold mb-3">Contact Us</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-blue-400 mr-3"></i>
+                            <a href="tel:8663020916" class="text-gray-300 hover:text-white transition-colors">866-302-0916</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-blue-400 mr-3"></i>
+                            <span class="text-gray-300">24/7 Support Available</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-blue-400 mr-3"></i>
+                            <span class="text-gray-300">support@geeksupport.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-base font-semibold mb-3">Follow Us</h4>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-linkedin-in text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-youtube text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-4 text-center">
+                <p class="text-gray-400">
+                    Copyright © GeekSupport 2025 All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Back to Top Button
+            const backToTopBtn = document.getElementById('backToTop');
+
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.remove('opacity-0', 'invisible');
+                    backToTopBtn.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopBtn.classList.remove('opacity-100', 'visible');
+                    backToTopBtn.classList.add('opacity-0', 'invisible');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

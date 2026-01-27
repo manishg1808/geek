@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - GeekSupport</title>
+    <link rel="icon" type="image/png" href="IMAGE/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        .footer-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        .island {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: scale(1);
+            background: rgb(52, 65, 73);
+            filter: url(#octave1) brightness(2.25) contrast(1.05) blur(0.25rem);
+            z-index: 0;
+        }
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+        .mobile-call-btn {
+            animation: zoomInOut 2s ease-in-out infinite;
+        }
+        @keyframes zoomInOut {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .section-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, #f3f4f6, #e5e7eb);
+        }
+        .section-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-color: #d1d5db;
+        }
+        .toc-link {
+            transition: all 0.2s ease;
+        }
+        .toc-link:hover {
+            color: #3b82f6;
+            padding-left: 1rem;
+        }
+        .toc-link.active {
+            color: #3b82f6;
+            font-weight: 600;
+            padding-left: 1rem;
+        }
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+        #mobile-toc-drawer.open {
+            transform: translateX(0);
+        }
+        #mobile-toc-overlay.show {
+            display: block !important;
+        }
+        @media (max-width: 1023px) {
+            #mobile-toc-sidebar {
+                display: none !important;
+            }
+        }
+        .section-card p {
+            text-align: justify;
+        }
+        .section-card li {
+            text-align: justify;
+        }
+        .section-card h2,
+        .section-card h3,
+        .section-card h4 {
+            text-align: left;
+        }
+        .parallax-bg {
+            will-change: transform;
+            transition: transform 0.1s ease-out;
+        }
+        .print-only-title {
+            display: none;
+        }
+        @media print {
+            @page {
+                margin: 1.5cm;
+            }
+            * {
+                background: white !important;
+                color: black !important;
+                box-shadow: none !important;
+            }
+            nav, footer, .print-btn, .cta-pattern-bg, .hero-section, .sticky, .toc-sidebar {
+                display: none !important;
+            }
+            .print-only-title {
+                display: block !important;
+                margin-bottom: 30px !important;
+                padding-bottom: 15px !important;
+                border-bottom: 2px solid #000 !important;
+            }
+            .section-card {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                border: 1px solid #ddd !important;
+                margin-bottom: 25px !important;
+                padding: 20px !important;
+                background: white !important;
+            }
+            body {
+                background: white !important;
+                font-size: 11pt !important;
+                line-height: 1.6 !important;
+            }
+            .main-content {
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+            }
+            .grid {
+                display: block !important;
+            }
+            .content-area {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+            h1, h2 {
+                page-break-after: avoid;
+                margin-top: 25px !important;
+                margin-bottom: 15px !important;
+                color: black !important;
+            }
+            h2 {
+                font-size: 18pt !important;
+            }
+            p, li {
+                color: black !important;
+                font-size: 11pt !important;
+            }
+            img {
+                max-width: 100% !important;
+            }
+            a {
+                color: black !important;
+                text-decoration: underline !important;
+            }
+            i {
+                display: none !important;
+            }
+            .flex {
+                display: block !important;
+            }
+        }
+        .cta-pattern-bg {
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-pattern-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.08) 2px, transparent 2px),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.08) 2px, transparent 2px),
+                linear-gradient(45deg, transparent 48%, rgba(59, 130, 246, 0.03) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(139, 92, 246, 0.03) 50%, transparent 52%);
+            background-size: 60px 60px, 60px 60px, 120px 120px, 120px 120px;
+            background-position: 0 0, 30px 30px, 0 0, 60px 60px;
+            opacity: 1;
+            animation: ctaPatternMove 25s linear infinite;
+        }
+        .cta-pattern-bg::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: ctaFloat 20s ease-in-out infinite;
+        }
+        @keyframes ctaPatternMove {
+            0% { 
+                background-position: 0 0, 30px 30px, 0 0, 60px 60px;
+            }
+            100% { 
+                background-position: 60px 60px, 90px 90px, 120px 120px, 180px 180px;
+            }
+        }
+        @keyframes ctaFloat {
+            0%, 100% { 
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            33% { 
+                transform: translate(-40px, -40px) rotate(120deg) scale(1.1);
+            }
+            66% { 
+                transform: translate(-80px, -80px) rotate(240deg) scale(1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center shrink-0">
+                    <a href="index.html" class="flex items-center focus:outline-none" aria-label="GeekSupport Home">
+                        <img src="IMAGE/logo.png" alt="GeekSupport" class="h-9 sm:h-10 md:h-11 w-auto max-h-12 object-contain object-left block" />
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="pricing.html" class="text-gray-700 hover:text-blue-600 transition-colors">Pricing & Features</a>
+                    <a href="index.html#services" class="text-gray-700 hover:text-blue-600 transition-colors">Services</a>
+                    <a href="index.html#contact-form" class="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
+                    <div class="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium">
+                        <i class="ri-phone-line mr-2"></i>866-302-0916
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center gap-3">
+                    <a href="tel:8663020916" class="mobile-call-btn text-red-500 p-2.5 flex items-center justify-center">
+                        <i class="ri-phone-line text-xl"></i>
+                    </a>
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600">
+                        <i class="ri-menu-line text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="pricing.html" class="block py-2 text-gray-700 hover:text-blue-600">Pricing & Features</a>
+                <a href="index.html#services" class="block py-2 text-gray-700 hover:text-blue-600">Services</a>
+                <a href="index.html#contact-form" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+                <div class="mt-4 bg-red-500 text-white px-4 py-2 rounded-full text-center">
+                    <i class="ri-phone-line mr-2"></i>866-302-0916
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section relative py-28 text-white overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920&q=80" 
+                 alt="Terms & Conditions" 
+                 class="w-full h-full object-cover parallax-bg">
+            <div class="absolute inset-0 bg-gray-900 opacity-60"></div>
+        </div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="inline-block mb-12">
+                    <i class="ri-file-text-line text-6xl text-white drop-shadow-lg"></i>
+                </div>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 drop-shadow-lg">Terms & Conditions</h1>
+                <p class="text-xl md:text-2xl opacity-95 mb-4 drop-shadow-md">Outsourced IT services and support for businesses and self-employed professionals</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile TOC Toggle Button -->
+    <div class="lg:hidden bg-white border-b border-gray-200 sticky top-[73px] z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <button id="mobile-toc-toggle" class="w-full py-3 flex items-center justify-between text-gray-700 hover:text-blue-600 transition-colors">
+                <span class="flex items-center gap-2 font-semibold">
+                    <i class="ri-menu-line text-blue-600"></i>
+                    <span>Table of Contents</span>
+                </span>
+                <i id="mobile-toc-icon" class="ri-menu-line text-xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div id="mobile-toc-overlay" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-50 hidden transition-opacity"></div>
+
+    <!-- Mobile Sidebar Drawer -->
+    <div id="mobile-toc-drawer" class="lg:hidden fixed top-0 left-0 h-full w-80 bg-white shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
+        <div class="p-6">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-lg font-bold text-gray-900 flex items-center gap-2">
+                    <i class="ri-list-unordered text-blue-600"></i>
+                    <span>Table of Contents</span>
+                </h3>
+                <button id="mobile-toc-close" class="text-gray-500 hover:text-gray-700">
+                    <i class="ri-close-line text-2xl"></i>
+                </button>
+            </div>
+            <nav class="space-y-2">
+                <a href="#introduction" class="toc-link block text-sm text-gray-600 py-2">Introduction</a>
+                <a href="#use-of-services" class="toc-link block text-sm text-gray-600 py-2">Use of Services</a>
+                <a href="#registration" class="toc-link block text-sm text-gray-600 py-2">Registration</a>
+                <a href="#services" class="toc-link block text-sm text-gray-600 py-2">Services</a>
+                <a href="#termination-services" class="toc-link block text-sm text-gray-600 py-2">Termination of Services</a>
+                <a href="#prohibited-uses" class="toc-link block text-sm text-gray-600 py-2">Prohibited Uses</a>
+                <a href="#limitations-users" class="toc-link block text-sm text-gray-600 py-2">Limitations on Users</a>
+                <a href="#user-accounts" class="toc-link block text-sm text-gray-600 py-2">User Accounts</a>
+                <a href="#payment" class="toc-link block text-sm text-gray-600 py-2">Payment</a>
+                <a href="#disclaimer" class="toc-link block text-sm text-gray-600 py-2">Disclaimer of Warranties</a>
+                <a href="#limitation-liability" class="toc-link block text-sm text-gray-600 py-2">Limitation of Liability</a>
+                <a href="#indemnification" class="toc-link block text-sm text-gray-600 py-2">Indemnification</a>
+                <a href="#claims-limitation" class="toc-link block text-sm text-gray-600 py-2">Claims / Time Limitation</a>
+                <a href="#arbitration" class="toc-link block text-sm text-gray-600 py-2">Arbitration Agreement</a>
+                <a href="#other-terms" class="toc-link block text-sm text-gray-600 py-2">Other Important Terms</a>
+                <a href="#communications" class="toc-link block text-sm text-gray-600 py-2">Communications</a>
+                <a href="#miscellaneous" class="toc-link block text-sm text-gray-600 py-2">Miscellaneous</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="main-content py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Print Button -->
+            <div class="flex justify-end mb-4">
+                <button onclick="window.print()" class="print-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105">
+                    <i class="ri-printer-line text-lg"></i>
+                    <span class="hidden sm:inline">Print Page</span>
+                </button>
+            </div>
+            <div class="grid lg:grid-cols-4 gap-8">
+                <!-- Table of Contents Sidebar -->
+                <div id="mobile-toc-sidebar" class="toc-sidebar lg:col-span-1 hidden lg:block">
+                    <div class="sticky top-24 bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                            <i class="ri-list-unordered text-blue-600"></i>
+                            <span>Table of Contents</span>
+                        </h3>
+                        <nav class="space-y-2">
+                            <a href="#introduction" class="toc-link block text-sm text-gray-600 py-2">Introduction</a>
+                            <a href="#use-of-services" class="toc-link block text-sm text-gray-600 py-2">Use of Services</a>
+                            <a href="#registration" class="toc-link block text-sm text-gray-600 py-2">Registration</a>
+                            <a href="#services" class="toc-link block text-sm text-gray-600 py-2">Services</a>
+                            <a href="#termination-services" class="toc-link block text-sm text-gray-600 py-2">Termination of Services</a>
+                            <a href="#prohibited-uses" class="toc-link block text-sm text-gray-600 py-2">Prohibited Uses</a>
+                            <a href="#limitations-users" class="toc-link block text-sm text-gray-600 py-2">Limitations on Users</a>
+                            <a href="#user-accounts" class="toc-link block text-sm text-gray-600 py-2">User Accounts</a>
+                            <a href="#payment" class="toc-link block text-sm text-gray-600 py-2">Payment</a>
+                            <a href="#disclaimer" class="toc-link block text-sm text-gray-600 py-2">Disclaimer of Warranties</a>
+                            <a href="#limitation-liability" class="toc-link block text-sm text-gray-600 py-2">Limitation of Liability</a>
+                            <a href="#indemnification" class="toc-link block text-sm text-gray-600 py-2">Indemnification</a>
+                            <a href="#claims-limitation" class="toc-link block text-sm text-gray-600 py-2">Claims / Time Limitation</a>
+                            <a href="#arbitration" class="toc-link block text-sm text-gray-600 py-2">Arbitration Agreement</a>
+                            <a href="#other-terms" class="toc-link block text-sm text-gray-600 py-2">Other Important Terms</a>
+                            <a href="#communications" class="toc-link block text-sm text-gray-600 py-2">Communications</a>
+                            <a href="#miscellaneous" class="toc-link block text-sm text-gray-600 py-2">Miscellaneous</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="content-area lg:col-span-3 space-y-6">
+                <!-- Print Only Title -->
+                <div class="print-only-title hidden print:block mb-6">
+                    <h1 class="text-3xl font-bold mb-2">Terms & Conditions</h1>
+                </div>
+
+                <!-- Introduction -->
+                <div id="introduction" class="section-card rounded-lg p-10 shadow-sm">
+                    <div class="flex-1">
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            <strong>ARBITRATION AND CLASS ACTION AND JURY WAIVER NOTICE PARTIAL SUMMARY:</strong> you agree that except for certain types of disputes described in the arbitration agreement, disputes between you and company will be resolved by mandatory binding individual arbitration, and you waive any right to participate in a class- action lawsuit or class-wide arbitration, consolidation, court proceeding, or jury trial, all as set forth in the important arbitration agreement (a distinct agreement within, and demarcated at what is headed sections 17 and 118 ).
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            <strong>MODIFICATION NOTICE SUMMARY:</strong> We have the right to modify this agreement, effective immediately, at any time and without notice other than posting the modified agreement. If any modification is unacceptable to you, you shall cease using any company website, services, or platform. If you do not cease using any company website, services, or platform you will be conclusively deemed to have agreed to and accepted the modification(s). Company does not and will not ever give or offer legal advice, and does not and cannot guarantee the accuracy or suitability of its content or communications for a particular purpose.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            <strong>LEGAL CONTRACT.</strong> This legal and binding contract is referred to as "Terms," "Agreement," or "Contract." By entering into it You acknowledge that You will have read, and have in fact read, and understand, and agree to and with all of it. The Terms apply to your access to and use of www.GeekSupport.com and to GeekSupport's websites (desktop and mobile) ("Website(s)," or "Site(s)"), applications, apps, and all means of written and oral communications, including emails, chats, instant messengering, and the like, and voice communications (referred to herein individually and collectively, including Websites or Sites, as "Platforms " or "Platform"). These Platforms and GeekSupport are owned and/or operated by or for GeekSupport, Inc., and/or one or more of its subsidiaries ("Company," "Us," "We," "Our"). Your accessing or using any Services or Platform is Your agreement and is deemed to be your agreement that you have the ability to and consent to enter into contractual agreements electronically. you acknowledge that accessing or using any Services or Platform, including whether or not you click the "Continue Button," constitutes your written agreement and electronic signature adn your itnent to be contractually and legally bound by and to the terms herein.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            This Agreement contains the Terms that govern your access to any Platform and the use of, and the terms and conditions upon which Company will provide to you certain human resource management resources and other related services through our Platforms (collectively, the "Services," "Platform," or "Platforms"). This is a binding legal contract between you and the Company, so please read this Agreement and all related information referenced by this Agreement carefully before continuing to use any Platform, or registering for and/or using any of the Services. This Agreement is applicable to all persons, organizations, and entities, who or which use or access any Platform or Services, in their entity's/company's capacity or on an individual capacity, including users authorized by the employer to represent the employer, its employees, or other persons using or accessing any Platform or the Services (collectively, "User," "User's," "You," or "Your," whether upper- case [capitalized] or lower-case). You are a United States of America resident and an individual of at least 18 years of age. If you are agreeing to this Agreement on behalf of a of any entity – including, but not limited to, a company, organization, association, or trust, for example, no matter the legal form of the entity ("entity"), you represent and warrant You are at least 18 years old, that you have authority to bind that entity to this Agreement, and your agreement to these Terms will be treated as the agreement of the entity and the entity agrees to be bound by You to the Terms. In that event, "you" and "your" refer to that entity. If you do not agree to these Terms, you may not access or use any Platform.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Company reserves the right in its sole and unfettered discretion at any time to modify the Terms from time to time without notice to you and to impose new or additional terms or conditions on your use of Services or any Platform. Company may optionally notify you of any such change by sending an email message to the Administrator email address provided to Company upon Registration by User. Such modifications and additional terms and conditions will be effective immediately and incorporated into this Agreement. Your continued use of the Services will be deemed acceptance thereof. Except as posted by Us, including to the Websites or any Platform, the Terms will not be otherwise amended, and no terms will be waived by Us, except in a writing, hand signed by pen on paper by You and an authorized representative of Ours who intends to do so. For purposes specifically of this provision regarding any so-called amendment or waiver of the Terms, a "writing" does not include an email message, text, chat, or the like, sent from any device existing now or later developed and a signature does not include an electronic signature. For certainty, Your electronic Signature to this Agreement does constitute an electronic signature and it and this is a writing. We are not obligated to provide notice of modifications or amendment to the Terms by way of any method other than the making available or posting of the amended Terms on or through any Company Website(s) or Platform, and doing so without more is deemed and agreed to be sufficient notice of modifications and amendment(s). We may note on the Agreement available at or on or through Websites or Platforms, what the effective date of that version of the Terms is, and You agree that You will keep track Yourself of the effective dates of various versions of the Terms, and that We are not required to point out to You changes from version to version of the Terms. You may copy and paste each version of the Terms into a document for Your own personal retention, and You may use any variety of tools to "compare" various versions of the Terms. You should check these Terms regularly and periodically for modifications. The provisions contained herein supersede all previous notices or statements regarding our Terms with respect to any Platform. We may include the revised date and effective date of our Terms either at the top, bottom, or within the revised Terms. We encourage you to check our Websites frequently to see the current Terms in effect and any changes that may have been made to the Terms. By using any Platform following any modifications to the Terms, you agree to be bound by such modifications.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Please also refer to the Company Privacy Policy, and any other terms accepted when Registering with Company, each of which are/is incorporated herein by reference. We are not governed by HIPAA (the Health Insurance Portability and Accountability Act); therefore, although we do protect data as described elsewhere, if You are governed by HIPAA we urge You to govern yourself accordingly. If HIPAA applies to You You will not disclose to Company or store with Company protected health information or personally identifiable health information (PHI).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Use of Services -->
+                <div id="use-of-services" class="section-card rounded-lg p-10 shadow-sm">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">USE OF SERVICES / PLATFORMS</h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Company's service Platforms are licensed and provided to you subject to the terms and conditions, and your covenants, warranties and representations, set forth in this Agreement, and in any acknowledgment for specific Services / Platform(s). You agree that all information submitted or communicated by you to any Company Platform is and will be true and correct. You agree that any Platform you access constitutes confidential, proprietary, intellectual property of Company, that this license is revocable by Company at any time, and that you will not modify, reverse engineer, decompile or disassemble, or otherwise tamper with any Platform or create any derivative works or otherwise incorporate any Platform in other programs, without Company's prior written consent. Any feedback, including modifications to any documents, you provide will become Company information and Company will have the royalty-free right to use and share the feedback and to create and use derivative works based on the feedback.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            The Company provides you with access to and use of any Platform subject to your compliance with the Terms. No material from any Platform may be copied, reproduced, republished, uploaded, posted, transmitted or distributed in any way, except for as specifically allowed by the Terms
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            You grant us a non-exclusive, royalty-free license to use any feedback, content, or modification, you post on any Platform, or provide to Company, for any purpose, subject to the express terms of this Agreement.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Registration -->
+                <div id="registration" class="section-card rounded-lg p-10 shadow-sm">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">REGISTRATION</h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            To subscribe (opt-in) to any of the Services, you must register for a Company account from our Platform ("Registration"). Company reserves the right to change account information that may be legitimately considered misleading, or false. You agree that Company may, without prior notice, immediately terminate, limit your access to, or suspend your account and access to any Platform or Services. Cause for such termination, limitation of access or suspension shall include, but not be limited to: (a) breach or violation of the Terms or other incorporated agreements or guidelines, (b) a request by law enforcement or other government agency, (c) discontinuance or material modification to the Services (or any part thereof), (d) unexpected technical or security issues or problems, (e) extended periods of inactivity, (f) engagement by you in fraudulent or illegal activities, (g) nonpayment of any fees owed by you in connection with the Services or your use or access to any Platform, and/or (h) participation by you in any way in any equitable or legal action or claim against the Company. Further, you agree that all terminations, limitations of access and suspensions, for cause or otherwise, may be made at Company's sole and unfettered discretion, and that Company shall not be liable to you or any third-party for any termination of your account or access to the Services or any Platform. Termination of your account may include, at Company 's sole and unfettered discretion, any or all of the following: (a) removal of access to all or part of the offerings within the Services or any Platform, (b) deletion of your password and all related information, files and content associated with or inside your account (or any part thereof), and (c) barring of further use of all or part of the Services or any Platform. Termination or suspension will terminate your access to any information of documents stored or maintained on any Platform. You may terminate your Company account and terminate access to the Services and any information and documents by contacting suppor@geeksupport.com.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div id="services" class="section-card rounded-lg p-10 shadow-sm">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">SERVICES</h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            After Registration has been completed, Company will provide you Services and access to and use of the Platforms for the purpose of recording, creating, and monitoring employee performance, improvement plans, corrective action reporting, onboarding, and/or offboarding employees at your decision and discretion for the period of time provided in your Registration ordering and activation terms.  Depending on the type of Services you request and Company agrees to provide, Company may require you to agree to additional terms and conditions and complete and sign additional forms or authorizations that Company provides to you, as required by law, or otherwise required by Company in its sole and unfettered discretion to provide the Services and access to and use of any Platform. You give Company permission to obtain, verify, and record information that identifies the individual who opens an account by Registration, or accesses the Services or any Platform. Company may ask for your legal name, email address, and other information that may allow us to identify you. Company may, at its sole and unfettered discretion, decline to offer the Services to you for any reason at any time, including in the event that the Registration enrollment process is not satisfactorily completed, Company is unable to verify the legitimacy of your business and/or your principals and/or for other lawful business reasons. The Services and access to and use of any Platforms provided will be based on and is dependent upon information provided to Company by User. In performing or providing the Services and access to and use of any Platforms, you acknowledge and agree that Company is not acting in a fiduciary or lawyer capacity for you and/or your business and using the Services does not relieve you of your obligations under federal, state, municipal, or local laws or regulations to have and retain records relating to employees and data about your business and employees contained in Company's files.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Termination of Services -->
+                <div id="termination-services" class="section-card rounded-lg p-10 shadow-sm">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">TERMINATION OF SERVICES</h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            We reserve the right, for any reason, in our sole and unfettered discretion and without notice to you, to terminate, change, suspend or discontinue any aspect of the Services or any Platform, including, but not limited to, information, data, text, music, sound, photographs, graphics, video, messages or other materials ("Content"), features, and/or hours of availability, and we will not be liable to you or to any third party for doing so. We may also impose rules for and limits on use of any Platform or restrict your access to part, or all, of any Platform without notice, damages, claims, or penalty. We have the right to change these Terms, rules and/or limitations at any time, in our sole and unfettered discretion.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Prohibited Uses -->
+                <div id="prohibited-uses" class="section-card rounded-lg p-10 shadow-sm">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">PROHIBITED USES OF SERVICES</h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Each Platform may be used only for lawful purposes by individuals using authorized Services of the Company. You are responsible for your own communications, including the upload, transmission and posting of information, and are responsible for the consequences of their posting on or through any Platform or your providing same to Company. The Company specifically prohibits any of the following uses of each Platform, and all Users agree not to use any Platform for any of the following:
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 leading-relaxed mb-4 space-y-2">
+                            <li>Use the Services or any Platform other than as authorized in this Agreement;</li>
+                            <li>Use any device, software, or routine that interferes with any application, function, or use of the Services or any Platform, or is intended to damage, detrimentally interfere with, surreptitiously intercept, or expropriate any system, data, or communication;</li>
+                            <li>Resell, sublicense, time-share, or otherwise share the Services or any Platform with any third party;</li>
+                            <li>Frame or mirror the Services or any Platform;</li>
+                            <li>Decompile, disassemble or reverse-engineer the underlying software or application that is part of the Services or any Platform or otherwise attempt to derive its source code;</li>
+                            <li>Use the Services or any Platform either directly or indirectly to support any activity that is illegal, improper, unethical, or immoral;</li>
+                            <li>Access or scrape the Services or any Platform for purposes of monitoring its availability, performance or functionality, or for any other benchmarking or competitive purposes;</li>
+                            <li>Authorize any third parties to do any of the above;</li>
+                            <li>Posting or providing any content or information which is incomplete, false, inaccurate or not your own;</li>
+                            <li>Impersonating another person or entity;</li>
+                            <li>Constituting or encouraging conduct that would constitute a criminal offense, give rise to civil liability, or otherwise violate any municipal, local, city, state, national or international law or regulation or which fails to comply with accepted Internet protocol;</li>
+                            <li>Posting or providing material that is copyrighted or otherwise owned by a third party unless you are the copyright owner or have the permission of the owner to post or provide it to Company;</li>
+                            <li>Posting or providing material that reveals trade secrets, unless you own them or have the permission of the owner;</li>
+                            <li>Posting or providing material that infringes on any other intellectual property, privacy or publicity right of another;</li>
+                            <li>Transmitting or transferring (by any means) information or software derived from the site to foreign countries or certain foreign nations in violation of US export control laws;</li>
+                            <li>Attempting to interfere in any way with any Platform's or the Company's networks or network security, or attempting to use the Services or any Platform to gain unauthorized access to any other computer system..</li>
+                        </ul>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Such usage may result in Users being subjected to additional criminal or civil liability, depending on jurisdiction.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Limitations on Users -->
+                <div id="limitations-users" class="section-card rounded-lg p-10 shadow-sm">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">LIMITATIONS ON USERS</h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Company provides the Services on a limited basis that permits reasonable usage of the Services by you. Company may choose at any time to modify and/or enforce such limitations at its sole and unfettered discretion. Reasonable usage may be defined as the average reasonable User usage levels of any Services or features, the usage limits explicitly communicated at or after the time of purchase/Registration, or Company's own determined levels of usage. Company reserves the right in its sole and unfettered discretion to terminate any Services, change packaging and pricing, or otherwise take any action as necessary to prevent customer abuse and/or inappropriate or unauthorized use of Services. You acknowledge that Company may establish or impose practices and limits concerning use of the Services, including without limitation, the maximum number of days, incident reports, warnings, and performance improvement plans are retained. You agree that Company has no responsibility or liability for the deletion or failure to store any incident reports, warnings, performance improvement plans, or any other communications. You acknowledge that Company has the right to log off accounts that are inactive for an extended period of time, as well as to remove or delete all communications, documents, and information associated with those accounts, such as but not limited to incident reports, warnings, performance improvement plans, employee lists, employee details, and settings. Company considers any account to be inactive if it does not have a record of at least one the following activities within a 180-day period: (a) a customer login and/or active session for that account or (b) a payment to the account.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- User Accounts -->
+                <div id="user-accounts" class="section-card rounded-lg p-10 shadow-sm">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">USER ACCOUNTS / ADMINISTRATOR ACCOUNTS</h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            You will designate and authorize either yourself and/or one or more individual Users of the Service with authority to act on your behalf and to bind you and/or your business (each a "User"), who may access the Services by entering a confidential user ID and password created by following the instructions provided via any Platform and which will entitle them, depending on their designation and permissions given, to have authority to access, review, and/or modify on your behalf. You will, and will cause your authorized Users to, take reasonable steps to maintain the confidentiality of the authorization procedures and the user IDs and passwords and related instructions provided by Company, and in accordance with Company's Privacy Policy. If you believe or suspect that any such user IDs and passwords or related instructions have been known or accessed by unauthorized persons, you will immediately notify Company in a manner affording Company a reasonable opportunity to act on the information, and you acknowledge that failure to immediately notify Company could result in unauthorized access to confidential information concerning you and your employees. Company reserves the right to prevent access to the Service should Company have reason to believe the confidentiality of the security procedure or the confidentiality of the user IDs and passwords may have been compromised. You are responsible for any actions taken on any Platform by your User and/or any other authorized Users, and for any transactions resulting from your failure to maintain the confidentiality of your account. You agree that the provision of a user ID and password by you, your User and/or any other authorized Users, will have the same effect as providing a written signature authorizing performance improvement plans and other Services on any Platform.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Payment -->
+                <div id="payment" class="section-card rounded-lg p-10 shadow-sm">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">PAYMENT</h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Except as prohibited by law, Company may assess interest or late charges if you do not pay on time. You must pay these late charges when billed by the Company for them. The late charge will be the lesser of 1 percent of the unpaid amount each month or the maximum rate permitted by law. Company may use a third-party to collect past due amounts. You must pay for all reasonable costs Company incurs to collect any past due amounts, including reasonable attorneys' fees and other legal fees and costs. Company may suspend or cancel your Services if you fail to pay all charges in full, on time.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">Subscription Cancellation</h3>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2 mt-4">CANCELLING MONTHLY SUBSCRIPTION</h4>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            You may cancel a monthly subscription at any time. However, such cancellation is effective at the end of the applicable subscription period. Please make any such cancellation by emailing  support@geeksupport.com. You must cancel your subscription before it renews in order to avoid billing of the next month's subscription fee to the Payment Method you provided. Refunds cannot be claimed for any partial-month subscription period. You will continue to have access to the Platform and Services for the remaining period of your monthly subscription.
+                        </p>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2 mt-4">CANCELLING ANNUAL SUBSCRIPTION</h4>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            You may cancel an annual subscription at any time. However, such cancellation is effective at the end of the applicable annual period. You must cancel your subscription before it renews in order to avoid billing of the renewal subscription fee to the Payment Method You provided. Refunds cannot be claimed for any partial subscription period. You will continue to have access to the Platform and Services for the remaining period of your annual subscription.
+                        </p>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2 mt-4">30 DAY REFUND POLICY</h4>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            You may cancel your monthly or annual subscription for a full refund of your subscription fee within 30 days of purchasing a new subscription. One time setup fees may be refundable during the 30 day timeframe only if no services or audit have been provided. Refunds are only available to customers with new subscriptions and do not apply to renewing subscriptions that must be canceled prior to the renewal date. The 30 Day Refund Policy does not apply to customers that join on a Free Trial subscription. Free Trial subscriptions must be canceled before the trial period ends to avoid being billed.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Disclaimer of Warranties -->
+                <div id="disclaimer" class="section-card rounded-lg p-10 shadow-sm">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">ADDITIONAL DISCLAIMER OF WARRANTIES AND PROMISSORY ESTOPPEL</h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Company, for itself and its licenses, and third party licensors, disclaims, and makes no express, implied, or statutory representations, warranties, or guarantees in connection with your accessing or using the site, any platform, or service (or any reference site / program or third party service providers or vendors) including relating to the quality, suitability, truth, accuracy, or completeness of any information or material contained or presented on or through any site, platform, or service (or any reference site / program or third party service providers or vendors). Unless otherwise explicitly stated, to the maximum extent permitted by applicable law, each site, platform, program, or service, and any information or material (or any reference site / program or third party service providers or vendors) contained or presented on or through each site, program, platform, or service is provided to you on an "as is", "as available", and "where is" basis with no warranty or express or implied warranty of any kind, including warranties of merchantability, fitness for a particular purpose, or non-infringement of third party rights. In no event will company (or its licensees, agents, officers, or attorneys) be liable for any damages whatsoever (including damages for loss of profits, business interruption, or loss of information) arising out of the use of or inability to use your computer, your browsers, program, any, sites, platform, or service (or any reference site / program or third party service providers or vendors), even if company has been advised of the possibility of such damages. Company does not provide any warranties against viruses, spyware, or malware that may be installed on your computer [although we try to protect against that]. regardless of supposed or actual representations made to you orally or in writing by company or any other person or entity concerning actions company or any other person or entity may or will take, or may not or will not take, you may not and will not rely upon same, and will not bring or participate in any action or claims regarding same, and you waive all rights and claims including for breach or promissory estoppel, under law and equity.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Limitation of Liability -->
+                <div id="limitation-liability" class="section-card rounded-lg p-10 shadow-sm">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Limitation of Liability and Damages</h2>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">LIMITATION OF LIABILITY</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            We will not be liable to you for any damages resulting from your access to or use of programs, services, sites, platform, or any reference site / program or third party service providers or vendors. We will not be responsible or liable for any failure of any sites, program, platform, or service to operate, for any errors or mistakes in or in connection with any program, site, platform, service, or any reference site / program or third party service providers or vendors, or for any lack of access to any of same. We may interrupt any site, program, platform, or service at any time to perform maintenance, to address security vulnerabilities, or for any other reason, or no reason at all, with no liability to you whatsoever. In no event will we be liable to you for any indirect, extraordinary, exemplary, punitive, special, reliance, incidental, or consequential damages (including, without limitation, any loss of data, revenue, profits, use, or other economic advantage, any damages arising from any unsuccessful court or arbitration action or legal or equitable dispute, or any other pecuniary or non-pecuniary loss or damage of any nature whatsoever) however arising, even if we know or have been advised there is a possibility of such damage. The liabilities limited by this section include, without limitation, liability for negligence. These limitations of liability also apply with respect to damages incurred by you by reason of any program, products or services sold or provided on any reference site / program or otherwise by third parties other than us and received through or advertised on any site, program, platform, service, or received through any reference site / program. The terms do not grant you or any third party not in privity to this agreement any greater or additional rights or remedies against you or us than such third party might otherwise have absent this terms. This terms does not grant any third party beneficiary rights, and such rights are expressly disclaimed.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">LIMITATION OF DAMAGES</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            In no event will our (company and its affiliates', contractors', employees', agents', attorneys', or third-party partners', licensees, licensors', or suppliers') total liability to you for all damages, losses, claims, and causes of action arising out of or relating to this terms, or your accessing or using the site, program, platform, service, or reference site / program, or your interaction with other users (whether in contract, tort including negligence, warranty, or otherwise), exceed the amount paid by you, if any, for accessing or using any program, site, platform, or service, during the twelve (12) months immediately preceding the date of the claim or one hundred dollars ($100.00), whichever is greater. The liabilities limited by this section include, without limitation, liability for negligence. These limitations of damages also apply with respect to damages incurred by you by reason of any use of any site, platform, content, program, products or services licensed, sold, or provided on any platform, reference site / program or otherwise by third parties and received through or advertised on any site, program, platform, service, or content, or received through any reference site / program.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">LIMITATIONS BY APPLICABLE LAW</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            The limitations or exclusions of warranties, remedies, or liability contained in the terms apply to you to the fullest extent such limitations or exclusions are permitted under the laws of the jurisdiction where you reside, if the laws of the jurisdiction where you reside apply at all. Certain jurisdictions may not allow limitations on implied warranties or the exclusion or limitation of certain damages. If you reside is such a jurisdiction, some or all of the disclaimers, exclusions, or limitations may not apply to you, and you may have additional rights, though it is our position that since the laws of California govern this terms the laws of the jurisdiction where you reside do not apply. You agree that the foregoing does not give you any right to assert, and you will not assert, that the laws of the jurisdiction where you reside apply or that the venue for any such claims should be in such jurisdiction.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">BASIS OF THE BARGAIN</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            You acknowledge and agree that we have offered to allow you to access and use the sites, platforms, and services, set our prices and other consideration, and entered into this terms in reliance upon the warranty disclaimers and the limitations of liability set forth herein, among other things, that the warranty disclaimers and the limitations of liability set forth herein reflect a reasonable and fair allocation of risk between you and us, and that the warranty disclaimers and the limitations of liability set forth herein, among other things, form an essential basis of the bargain between you and us. We would not be able to provide any site, platform, service, or program, to you on an economically reasonable basis without these limitations.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">YOUR REMEDIES</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Your only remedy with respect to any breach by Us of any term in this Terms, Our Privacy Policy, violation of any right or law, or dissatisfaction with anything in connection with this Agreement, including (i) any Sites, Program, Platform, Service, Reference Sites / Program, Compiler, licenses, licensor or Third Party Vendor, (ii) any term of this Terms, (iii) any policy or practice of Company, or any Reference Sites / Program, Compiler, licenses, licensor or Third Party Vendor in operating any Sites, Program, Platform, or Service, is terminate Your account and discontinue accessing or using any and all of the foregoing (including any Program, Sites, Platform, Service, Reference Site / Program, or Third Party Vendor).
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">LOCAL LAWS</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Company operates from its headquarters in California, United States, and a Program, Site, Platform, or Service may not be appropriate or available for use in other locations. If You access or use any Program, Site, Platform, or Service outside the United States of America, You are responsible for following applicable local laws, regulations, directives, etc.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Indemnification -->
+                <div id="indemnification" class="section-card rounded-lg p-10 shadow-sm">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">INDEMNIFICATION, DEFENSE & RELEASE</h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            You agree to indemnify, defend, save, and hold harmless Company, its parent and affiliated companies, its subsidiaries, affiliates, contractors, employees, officers, principals, directors, licensees, licensors, attorneys, agents, assigns, grantees, successors, and their suppliers, licensees, licensors, and partners, (collectively "Releasees"), from any claims, causes of action, losses, damages, liabilities, including legal fees and expenses, arising out of this Agreement, including Your accessing or using any Platform or Service, Your use or misuse of any Program or Company Sites, Platform, Service, any violation by You of any term of this Terms, or any breach of any of the representations, warranties, promises, or covenants made by You herein. Company reserves the right, at Your expense, to assume the exclusive defense and control of any matter for which You are required to indemnify, defend, or hold harmless Company, and You agree to cooperate with Company's defense of these claims. Company will use reasonable efforts to notify You of any such claim, action, or proceeding upon becoming aware of it. Users and Third Party Business Partners are responsible for their acts and omissions and anything placed on or made available through any Company Platform. In the event that You have a dispute with or claim against one or more Users or Third Party Business Partners, You release Company (and, as usual, our parents, subsidiaries, officers, directors, shareholders, employees, agents, joint ventures, licensees, licensors, consultants, successors and assigns) from any and all claims, demands and damages (actual and consequential) of every kind and nature, known and unknown, suspected and unsuspected, disclosed and undisclosed, arising out of or in any way connected with such disputes. You also hereby release, discharge and hold harmless the Releasees from and against any and all claims, whether at law or in equity, that You may have at any time (whether or not You are aware of any such claims), including claims for breach of contract, infliction of emotional distress, defamation, false light, common law or statutory misappropriation, invasion or other violations of any actual or purported right of privacy and/or publicity, and claims under equivalent federal or state laws arising from this Agreement, including Your accessing or using any Platform or Service (collectively, the "Released Claims"). The Released Claims include any claim relating to, arising from or in connection with any use, exploitation or exercise of any right(s) granted hereunder. You understand and agree that all rights You may have under Section 1542 of the California Civil Code and any similar law of any state or U.S. territory, any similar federal law, or any similar common law or principle of similar effect, are hereby expressly waived. You acknowledge and understand that Section 1542 of the California Civil Code reads as follows: "a general release does not extend to claims which the creditor does not know or suspect to exist in his favor at the time of executing the release, which if known by him must have materially affected his settlement with the debtor." You acknowledge that You may hereafter discover claims in addition to the ones released in this agreement, and You hereby expressly release Releasees from any such unknown and/or unsuspected claims and Released Claims. You acknowledge that, in the event of a breach of this agreement by Company or any third party, the damage, if any, caused to You thereby will not be irreparable or otherwise sufficient to entitle You to seek or obtain injunctive or other equitable relief. You acknowledge that Your rights and remedies in any such event will be strictly limited to the right, if any, to recover damages in an action at law, and You will not have the right to enjoin Company, nor to revoke or otherwise impair any of the rights granted to Company herein.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Claims Time Limitation -->
+                <div id="claims-limitation" class="section-card rounded-lg p-10 shadow-sm">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">CLAIMS / TIME LIMITATION</h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            You and we agree that any claim or cause of action arising out of or related to your accessing or using any platform or service, the terms, except for our rights to seek indemnification, defense, and to be held harmless, must commence within one (1) year after the claim or cause of action accrues. otherwise, such claim or cause of action is permanently barred.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Arbitration Agreement -->
+                <div id="arbitration" class="section-card rounded-lg p-10 shadow-sm">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Arbitration Agreement; Class & Consolidation Waiver; Waiver of Trial by Jury</h2>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">Dispute Resolution</h3>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2 mt-4">APPLICABLE LAW</h4>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            This Terms and any additional terms referenced in this Terms, including the Privacy Policy, and the relationship and agreement between You and Company (including any claim or dispute that has arisen or may arise between You and Company), except to the extent inconsistent with or preempted by United States federal law (including that The United States Federal Arbitration Act governs the interpretation and enforcement of this Arbitration Agreement), are and will be governed by the laws of the State of California, U.S.A. without regard to principles of conflict of laws, and without giving effect to any principles that may provide for the application of the law of another jurisdiction. The United Nations Convention on Contracts for the International Sale of Goods does not apply to the Platforms or Services.
+                        </p>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2 mt-4">VENUE/JURISDICTION</h4>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            You agree to submit to the personal jurisdiction of the state courts and federal courts located within Los Angeles County, California, U.S.A. for the purpose of arbitrating, (or litigating, if later agreed and allowed,) all claims or disputes arising from or related to this Terms, or any additional terms referenced in this Terms, including the Privacy Policy.
+                        </p>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2 mt-4">INFORMAL NEGOTIATIONS</h4>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            To expedite resolution and reduce the cost of any dispute, controversy or claim, past, present, or future, between you and Company, including without limitation any disagreement, dispute, or claim related to or arising out of this Agreement , you and Company must and will attempt to negotiate any claim or dispute informally (the "Informal Negotiations") before initiating any arbitration proceeding, or court proceeding to the extent a court proceeding is proper unless injunctive relief is being sought by Company in which instance Informal Negotiations are not required. Such Informal Negotiations will commence shortly following written notice. A party who intends to seek arbitration must and will first send to the other, by both certified mail if a physical mail address is provided, and email, a completed form Notice of Dispute ("Notice of Dispute"). You may download a form Notice of Dispute here. The Notice of Dispute to Company is to be both mailed or otherwise delivered to Company, c/o GeekSupport, Inc., Attn: Legal, 1722 Routh St, Suite 900, Dallas, TX 75201, and by email to legal@geeksupport.com. We may email You a confirmation of receipt of Your Notice of Dispute and require that You verify that You submitted the Notice of Dispute. If we do, and we do not promptly receive back a verification then You agree that Your attempt to give Notice of Dispute is deemed ineffective. Company may send any Notice of Dispute to You to the physical address we have on file associated with Your Company account, if we have one, and if not then by email or any other commercially reasonable method (including social media); it is Your responsibility to keep Your physical address and all other contact information up to date. All information called for in the Notice of Dispute must be provided, including a description of the nature and basis of the claims the party is asserting and the relief sought.
+                        </p>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2 mt-4">ARBITRATION</h4>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            If the claims or disputes described in the Notice of Dispute is not resolved through Informal Negotiations within 30 days after the Notice of Dispute is sent, You or Company may initiate arbitration proceedings You and Company expressly agree to resolve any and all disputes not resolved through Informal Negotiations (except those disputes expressly excluded in section 17.3 ) through final and binding arbitration ("Arbitration Agreement") [except if you properly opt-out arbitration]. The United States Federal Arbitration Act governs the interpretation and enforcement of this Arbitration Agreement, which evidences a transaction involving commerce; the arbitrator shall apply Federal or California State law to all other matters.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Except as may be otherwise set forth in this Arbitration Agreement, the arbitration will be commenced and conducted before a single arbitrator under the Commercial Arbitration Rules (the "AAA Rules") of the American Arbitration Association ("AAA") and, where appropriate, the AAA's Supplementary Procedures for Consumer Related Disputes ("AAA Consumer Rules"), both of which are available at the AAA website (www.adr.org). If AAA ceases to provide arbitration service, then the term "AAA" shall mean and refer to J.A.M.S, and the arbitration shall be held under the J.A.M.S. Streamlined Arbitration Rules and Procedures, as modified by this Terms and Arbitration Agreement. The use of the word "arbitrator" in this provision shall not be construed to prohibit more than one arbitrator from presiding over an arbitration: rather, the AAA's rules will govern the number of arbitrators that may preside over an arbitration conducted under this Arbitration Agreement. The arbitrator(s) shall be a retired judge or justice, or a duly licensed attorney with no less than 10 years of experience in arbitrating commercial disputes involving the claims in dispute. If the parties cannot agree upon an arbitrator within fifteen days of the filing of the demand for arbitration, the AAA shall select the arbitrator.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            A form for initiating arbitration proceedings is available on the AAA's site at www.adr.org and here (link to https://GeekSupport/arbitration_form.html). In addition to filing this form with the AAA in accordance with its rules and procedures, the party initiating the arbitration must mail a copy of the completed form to the opposing party. You must and will send a copy to Company at both the following address: c/o GeekSupport, Inc., Legal, 1722 Routh St, Suite 900, Dallas, TX 75201, and by email to legal_at_geeksupport.com (replacing "_at_" with the standard "@" used in addressing emails). In the event Company initiates an arbitration against You, it will send a copy of the completed form to the physical address we have on file associated with Your Company account, if we have one, and if not then by email or any other commercially reasonable method (including social media); it is Your responsibility to keep Your physical address and all other contact information up to date. Any settlement offer made by You or Company shall not be disclosed to the arbitrator.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            All claims or arbitrations filed, brought, initiated, or commenced ("initiated") by You contrary to Section 23.1 through 23.3 shall be deemed improperly initiated. Should You initiate a claim or arbitration contrary to Section 23.1 through 23.3 Company may recover attorneys' fees and costs up to $1,000.00, provided that Company has notified You in writing of the improperly initiated claim or arbitration, and You have failed to promptly withdraw the claim or arbitration.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Your filing, administration, location, arbitration fees, and your share of arbitrator compensation will be governed by the AAA Rules (and, where appropriate, limited by the AAA Consumer Rules). If the value of the relief sought is $75,000.00 or less, at your written request, If you are able to prove that you are unable to pay such costs, Company will advance all AAA arbitration organization fees and expenses. Any request for payment of fees by Company must be submitted by mail to the AAA along with Your Demand for Arbitration and Company will make arrangements to advance all necessary fees directly to the AAA. If the value of the relief sought is legitimately more than $75,000.00 and You are able to demonstrate that the costs of accessing arbitration will be prohibitive as compared to the costs of accessing a court for purposes of pursuing litigation on an individual basis, Company will advance as much of the filing, administration, and arbitrator fees as the arbitrator(s) finds necessary to prevent the cost of accessing arbitration from being prohibitive. In the event the arbitrator determines the claim(s) You assert or relief You seek in the arbitration to be frivolous, not in good faith, brought for an improper purpose, or not valued at at least $75,000.00, You agree to promptly reimburse Company for all fees associated with the arbitration advanced by Company on Your behalf that You otherwise would be obligated to pay under the AAA's rules. If You receive an arbitration award that is more favorable than any offer we make to resolve the claim, we will pay You $1,000.00 in addition to the award. Company will not seek attorneys' fees and costs in arbitration unless the arbitrator determines the claims are frivolous, or pursuant to Section 23.10 . Each party will pay the fees and costs for his/her or its own attorneys and experts, subject to any remedies to which that party may later be entitled under applicable law. The arbitrator will make a decision in writing. Additionally, the arbitrator, and not any federal, state, or local court or agency, shall have the exclusive authority to resolve any dispute relating to the interpretation, applicability, enforceability, or formation of this Arbitration Agreement. However, the preceding sentence shall not apply to the "Class Action Waiver" described herein.
+                        </p>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2 mt-4">Excluded Disputes</h4>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            You and Company agree that the following Disputes are excluded from this Arbitration Agreement: (1) any Dispute seeking to enforce or protect, or concerning the validity of, any of your or our intellectual property rights; (2) individual claims in small claims court; (3) any claim that an applicable federal statute expressly states cannot be arbitrated; and (4) any claim for injunctive relief.
+                        </p>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2 mt-4">PROHIBITION OF CLASS AND REPRESENTATIVE ACTIONS AND NON- INDIVIDUALIZED RELIEF</h4>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            wSe each agree that any and all disputes or claims relating in any way to the site, services or this terms must be brought in the party's individual capacity and not as a plaintiff or class member in any purported class or representative or consolidated proceeding. By entering into this terms and agreeing to arbitration, you agree that you and company are each waiving any right to file a lawsuit, go to court, and the right to a trial by judge or jury, instead electing that all claims and disputes shall be resolved by arbitration under this arbitration agreement. (Arbitration procedures are typically, but not always, more limited, more efficient, and less costly than rules applicable in court and are subject to very limited review by a court.) Further, in the event any litigation should arise between you and company in any state or federal court in a suit to vacate or enforce an arbitration award, you and company waive all rights to a jury trial, instead electing that the dispute be resolved by a judge. In addition, you may only resolve disputes with us on an individual basis, and you agree to waive the right to participate in a class or representative action or litigate or arbitrate on a multi-party, class- wide, or consolidated basis. class arbitrations, class actions, private attorney general actions, multi-party, and consolidation with other arbitrations aren't allowed and are waived. unless both you and company agree otherwise in writing during the arbitration, the arbitrator(s) may not consolidate or join more than one person's or party's claims, and may not otherwise preside over any form of a consolidated, representative, multi-party, or class proceeding. also, the arbitrator may award relief (including monetary, injunctive, and declaratory relief) only in favor of the individual party seeking relief and only to the extent necessary to provide relief necessitated by that party's individual claim(s). any relief awarded cannot affect other users or parties. you agree that you have expressly and knowingly waived these rights.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Other Important Terms -->
+                <div id="other-terms" class="section-card rounded-lg p-10 shadow-sm">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Other Important Terms</h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Please refer to our Privacy Policy for more information on the manner in which Company collects, uses, discloses and otherwise treats your personal information. The Privacy Policy is fully incorporated herein by reference.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">PRIVACY POLICY AND REPORTING TO LAW ENFORCEMENT</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Your accessing or using the Site or use of any of the Platforms or Services is governed by Our privacy policy (the "Privacy Policy"), which is available here. Please read the Privacy Policy carefully, including for information relating to collection, use, and disclosure of Your personal information. Notwithstanding anything to the contrary in the Privacy Policy, We, Our affiliates, or agents, may contact You, including by telephone or email (if You provide us with such information), including after this Terms (the Terms) expires or is terminated, and Your agreement to the Terms constitutes Your request that We contact and communicate with You, including by traditional mail, private courier, telephone (land and mobile), email, texts, through social media including (but not limited to) Facebook, Twitter, Google+, YouTube, Vimeo, and various blogs. We may report to law enforcement authorities any actions that We may believe in our sole and unfettered discretion may be illegal, and any reports We receive of such conduct. When we believe we are legally required to do so or at Our sole and unfettered discretion, We may cooperate with law enforcement agencies, regulators, or parties to a civil action in any investigation or requests for information, including of alleged illegal activity, and may disclose information that We have about You.  Some or all of our business affiliates or partners may have their own terms and privacy policies, and You agree with and to those in connection with those business affiliates or partners, however, in relation to Us only if there is any conflict between Our Privacy Policy which would give You greater rights the provisions of this Terms and Our Privacy Policy will govern.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Company prohibits the sending of unsolicited email or text messages (spam) or other communications that violate applicable privacy and anti-spam legislation. Spam is defined for this purpose as sending any message that encourages participation in a commercial activity or multiple messages similar in content to any person(s), entity(ies), newsgroup(s), forum(s), email list(s), or other group(s), individual(s) or list(s) unless prior authorization has been obtained from the recipient or unless a business or personal relationship has already been established with the recipient in accordance with the requirements under applicable law. Company also prohibits using false headers in emails or falsifying, forging or altering the origin of any email or text message in connection with Company, and/or any products and Services. Company prohibits engaging in any of the foregoing activities by using the service of another provider, remailer service, or otherwise. IF YOU OR ANYONE YOU KNOW IS "SPAMMED" BY SOMEONE IN RELATION TO COMPANY'S SERVICES, PLEASE CONTACT US PROMPTLY VIA THE CONTACT MECHANISM MADE AVAILABLE VIA ANY PLATFORM SO THAT WE MAY TAKE APPROPRIATE ACTION.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            To the extent permitted by applicable by law, this Agreement will be governed by and interpreted in accordance with the laws of the State of California, except pursuant to the Arbitration Agreement the Arbitration Agreement is governed by the Federal Arbitration Act.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            If we do not insist immediately that you do anything you are required to do under these Terms, or if we delay in taking steps against you in respect of your breaking these Terms, that will not mean that you do not have to do those things and it will not prevent us taking steps against you at a later date.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Unless stated otherwise, all remedies provided for in this Agreement shall be cumulative and in addition to and not in lieu of any other remedies available to either party at law, in equity, or otherwise.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            If a court finds part of these Terms illegal, the rest will continue in force. Each of the Sections of these Terms operates separately. If any court or relevant authority decides that any of them are unlawful, the remaining Sections will remain in full force and effect.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            We may transfer these Terms to someone else. We may transfer our rights and obligations under these Terms to another organization – for example, this could include another member of our group of companies or someone who buys our business. We will always tell you in writing if this happens and we will ensure that the transfer will not affect your rights under these Terms.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">ELECTRONIC TRANSMISSION</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            This Agreement, and any amendments hereto, by whatever means accepted, shall be treated in all manner and respects as an original contract and shall be considered to have the same binding legal effect as if it were an original signed version thereof delivered in person. Neither party hereto shall argue that a contract was not formed hereunder based on either (i) the use of electronic means to deliver a signature or to indicate acceptance of this Agreement or (ii) the fact that any signature or acceptance of this Agreement was transmitted or communicated through electronic means; and each party forever waives any related defense.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">GOVERNING LANGUAGE</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            The Terms are in the American English language. For all purposes, this American English language version of this Agreement shall be the original, governing instrument and understanding of the parties. In the event of any conflict between this American English language version of the Agreement and any subsequent translation into any other language, including by an automated translation app, extension, or service, this American English language version shall govern and control.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">LEGAL DISCLAIMER</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Company's Services and Platforms contain, provide, and impart, a great deal of content, instruction, and communications, regarding human resource matters. The content, instruction, and communications, have been prepared and is/are provided for educational and informational purposes only without representation or warranty of any kind, does not constitute or provide attorney or legal advice, attorney or legal counsel, or attorney or legal opinions on any matters, is/are not a substitute or alternative for your judgment or attorney legal advice, or other professional advice with attorneys, lawyers, or other professional advisors. None of our representatives, employees, directors, advisors, independent contractors, etc., are lawyers (except for our lawyers providing legal advice to us), and no legal advice is or will be provided You by Company, and no legal advice will be provided You by Company or anyone employed by or associated with Company. If we suggest any attorneys or law firms to You, or there are any attorney or law firm advertisements or the like on any of our Platforms, it is Your sole responsibility to determine whether You wish to hire, engage, or retain any of them. This is Your own choice. Company has no responsibility for any attorney or law firm or other professional You retain, engage, or employ. Company does not replace or substitute for any financial, tax, legal, employment, or other professional services or advice. You should consult a professional trained in those areas if you need such assistance. Transmission of information over the internet or any Platform is not intended to create, and receipt does not constitute, a lawyer-client relationship between Company and you. You should not act or refrain from acting on any legal matter based on any content, instruction, or communications, through any Platform without seeking professional counsel, such as from a licensed lawyer. WE ARE NOT A LAW FIRM OR A SUBSTITUTE FOR AN ATTORNEY OR LAW FIRM. WE CANNOT AND DO NOT PROVIDE ANY KIND OF ADVICE, EXPLANATION, OPINION, OR RECOMMENDATION ABOUT POSSIBLE LEGAL RIGHTS, REMEDIES, DEFENSES, OPTIONS, SELECTION OR USE OF FORMS, DOCUMENTS, OR STRATEGIES. YOUR RELIANCE UPON CONTENT, INSTRUCTION, AND COMMUNICATIONS, OBTAINED BY YOU ON OR THROUGH THE PLATFORMS IS SOLELY AT YOUR OWN RISK.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">INTELLECTUAL PROPERTY RIGHTS</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            The content of the Platforms is protected by U.S. and International copyright laws, federal and states trademark laws and other intellectual property laws and conventions. Nothing contained in these Platforms will be construed as granting any license or right to use the protected materials without the express written consent of Company. By accessing or otherwise using the Platforms , you are indicating your acceptance of, and agreement to abide by, these terms of use, the applicable privacy policies and all applicable international federal, state and local laws and regulations. Any feedback, comments, and suggestions you may provide for improvements to the Service ("Feedback") is given entirely voluntary and Company will be free to use, disclose, reproduce, license or otherwise distribute, and exploit such Feedback as it sees fit, entirely without obligation or restriction of any kind.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Communications -->
+                <div id="communications" class="section-card rounded-lg p-10 shadow-sm">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Communications</h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            When You use any Company Platform or Services, accessing or using any Platform or Services, or send e-mails to us, You are communicating with us electronically. You consent to receive communications from us electronically. We may communicate with You by e-mail, text, short message system (SMS), chat, voice, telephone, mobile phone, social media service (such as Twitter, or Facebook), or by posting notices on this Site or through any other Company Platform or Services. You may be charged by your mobile cell phone carrier for texts and SMS. You agree that all agreements, notices, disclosures and other communications that we provide to You electronically satisfy any legal requirement that such communications be in writing.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">Recording Calls</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            You understand and agree that Company may, without further notice or warning and in our discretion, monitor or record telephone conversations You or anyone acting on Your behalf has with Company or its agents for quality control and training purposes or for its own protection, including to use as evidence. You acknowledge and understand that, while Your communications with Company may be overheard, monitored, or recorded without further notice or warning, not all telephone lines or calls may be recorded by Company, and Company does not guarantee and disclaims that recordings of any particular telephone calls will be retained or retrievable.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Miscellaneous -->
+                <div id="miscellaneous" class="section-card rounded-lg p-10 shadow-sm">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Miscellaneous</h2>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">NOTICES</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Except as explicitly stated otherwise: any notices given by You must be given to Our postal address or to Our registered agent for service of process, as stated. Notices and communications by You to Company must be in plain text (not HTML), must not contain pixels, cookies, or any other tracking mechanism or code, must not contain images, must not refer us to any other site or destination by link, and must not contain attachments. We will not: view or read communications that are not in plain text; view images; go to any linked site; or open any attachments. If you send us any electronic communications and we do not manually reply acknowledging receipt of the communication you may not rely upon any assumption that we received such communication, including if you receive an automated "delivered" notice, or an auto- response. Except as explicitly stated otherwise: Notices to You by Us will be deemed given the earlier of upon posting to our Platform or 24 hours after email is sent, unless we are notified that the email address is invalid. Alternatively, we may give You notice by certified mail, postage prepaid and return receipt requested, to the address provided to Company during any registration process. In such case, notice will be deemed given 3 days after the date of mailing. You agree that notice posted on any Company Platform is deemed given upon the initial posting, even if there is also notice given in any other way. When You visit any Platform or send Us e-mails, You are communicating with Us electronically. You consent to receive communications from Us electronically. We may communicate with You by e-mail, or by posting notices any Platform. You agree that all agreements, notices, disclosures, and other communications that We provide to You electronically satisfy any legal requirement that such communications be in writing.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">WAIVERS</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            A party's failure to enforce any provision of this Terms will not be a waiver of the provision or the right to enforce it at a later time. Our failure to act with respect to a breach by You or others does not waive our right to act with respect to subsequent or similar breaches. We do not guarantee we will take action against all breaches of the Terms.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">ENTIRE AGREEMENT</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            This Terms sets forth the entire understanding and agreement between us with respect to the subject matter hereof, and supersedes all prior negotiations, understandings and agreements, whether written or oral, and will not be modified except in writing, signed by both parties by hand, or by a change to this Terms made by Us as set forth herein. You agree that You are not entering into this Terms in reliance on any statements or representations other than those set forth herein. If any provision of this Terms is held to be invalid or unenforceable, such provision will be struck and the remaining provisions will be enforced.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">ASSIGNMENT</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            This Terms is not assignable, transferable or sublicensable by You without Our prior written consent, which may be withheld in our sole and unfettered discretion, and otherwise any such conveyance will be null and void. We may assign this Agreement in Our sole and unfettered discretion..
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">HEADINGS AND INTERPRETATION</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Should any term or condition be in conflict between this Terms and any document incorporated by reference into this Terms, the terms of this Terms will control. The use of headings is for convenience and will not affect the interpretation of this Agreement, and do not constitute a part of this Terms, and will not be deemed to limit or affect any of the provisions hereof. When the context requires, the plural shall include the singular and the singular the plural, and any gender shall include all other genders. When the context requires, "including," "e.g.," "for example," and "such as," mean "including, but not limited to, or "including, without limitation." " Just because we may not use such words as "represent," "warrant," "covenant," "obligated," or "prohibited," in relation to a provision or section applicable to You, whereas we might use any such words elsewhere, the absence does not mean the word is not implied. When we say "the Terms," or " this Terms," we mean each and every term, clause, section, subsection, provision and word of this Terms, not most or some. We don't need to say You "understand," "acknowledge," or "agree," including to emphasize, point out, or drive a point home, because that is what You are doing in agreeing to this Terms and contracting with us. No provision of this Terms is to be interpreted or strictly construed against Us because We were the drafter. This is not a contract of adhesion.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">RESERVATION OF RIGHTS</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Company reserves all rights not expressly granted in this Terms.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">PREVENTION OF UNAUTHORIZED USE</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Company reserves the right to exercise whatever lawful means it deems necessary to prevent unauthorized use of any Site, Platform, or Service, including, but not limited to, technological barriers, IP mapping, and directly contacting Your Internet Service Provider (ISP) regarding such unauthorized use. Company reserves the right to monitor Your use of any Site, Platform, or Service, to ensure compliance with this Terms. If Company, or its affiliates, or assignees, in their sole and unfettered discretion, determine that You are not in compliance with this Terms, Company reserves the right to take such action deemed necessary to resolve this issue.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">SURVIVAL</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            The provisions of this Terms, which by their nature should survive the termination or expiration of this Terms, will and do survive such termination or expiration. These include Sections  7 , 14 , 16 through 23 , 26 through 35 .
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">COMPLAINTS</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            In accordance with Cal. Civ. Code §1789.3, if You are domiciled in California You may report complaints to the Complaint Assistance Unit of the Division of Consumer Services of the California Department of Consumer Affairs by contacting them in writing at 400 R Street, Sacramento, CA 95814, or by telephone at (916) 445- 1254 or (800) 952-5210.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">QUESTIONS OR COMMENTS</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            If You have questions or comments, please send us a plain text note at support@geeksupport.com without any attachments. We do not assure we will reply.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">COUNTERPARTS</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            This Agreement may be executed in any number of counterparts, each of which when so executed and delivered shall be deemed to be an original and all of which taken together shall constitute one and the same instrument, respectively.
+                        </p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">TRUTH</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            You declare under penalty of perjury under the laws of the State of California and of the United States that all statements made, and information provided, by You in connection with this Agreement are true and correct, that the name you provide is Your legal name, and that Your signature is Your legal signature.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            I ACKNOWLEDGE THAT MY ELECTRONIC SUBMISSION(S) OR TYPING IN MY NAME BELOW AND CLICKING THE "CONTINUE BUTTON," CONSTITUTES MY WRITTEN AGREEMENT AND ELECTRONIC SIGNATURE AND MY INTENT TO BE CONTRACTUALLY AND LEGALLY BOUND BY AND TO THE TERMS.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-pattern-bg py-8 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <!-- Heading -->
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-gray-900">
+                    Questions About Our Terms & Conditions?
+                </h2>
+                
+                <!-- Subheading -->
+                <p class="text-base md:text-lg text-gray-700 mb-4 max-w-2xl mx-auto leading-relaxed">
+                    We're here to help. Contact our legal team or schedule a consultation to learn more about how we protect your privacy and data.
+                </p>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4">
+                    <a href="index.html#contact-form" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-200 inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        <span>Contact Us</span>
+                        <i class="ri-arrow-right-line text-sm"></i>
+                    </a>
+                    
+                    <a href="tel:8663020916" class="w-full sm:w-auto bg-transparent border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold text-sm hover:bg-blue-600 hover:text-white transition-all duration-200 inline-flex items-center justify-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105">
+                        <i class="ri-phone-line"></i>
+                        <span>866-302-0916</span>
+                    </a>
+                </div>
+                
+                <!-- Trust Indicators -->
+                <div class="pt-3 border-t border-gray-200">
+                    <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
+                        <div class="flex items-center gap-2">
+                            <i class="ri-shield-check-line text-blue-600"></i>
+                            <span>Secure & Compliant</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="ri-lock-line text-blue-600"></i>
+                            <span>Data Protected</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="ri-customer-service-2-line text-blue-600"></i>
+                            <span>24/7 Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-bg text-white py-8">
+        <div class="island">
+            <svg height="0" width="0">
+                <filter id="octave1">
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.002"
+                        numOctaves="8"
+                        seed="4"
+                        result="o1"
+                    ></feTurbulence>
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.004"
+                        numOctaves="8"
+                        seed="4"
+                        result="o2"
+                    ></feTurbulence>
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.0005"
+                        numOctaves="8"
+                        seed="4"
+                        result="o3"
+                    ></feTurbulence>
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.009"
+                        numOctaves="8"
+                        seed="4"
+                        result="o4"
+                    ></feTurbulence>
+
+                    <feMerge result="finalIsland">
+                        <feMergeNode in="o1"></feMergeNode>
+                        <feMergeNode in="o3"></feMergeNode>
+                        <feMergeNode in="o1"></feMergeNode>
+                        <feMergeNode in="o3"></feMergeNode>
+                    </feMerge>
+
+                    <feGaussianBlur
+                        in="finalIsland"
+                        stdDeviation="5"
+                        result="noiseo"
+                    ></feGaussianBlur>
+
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.004"
+                        numOctaves="8"
+                        seed="4"
+                        result="o1"
+                    ></feTurbulence>
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.008"
+                        numOctaves="8"
+                        seed="4"
+                        result="o2"
+                    ></feTurbulence>
+
+                    <feMerge result="noiseo">
+                        <feMergeNode in="o2"></feMergeNode>
+                        <feMergeNode in="o4"></feMergeNode>
+                        <feMergeNode in="noiseo"></feMergeNode>
+                    </feMerge>
+
+                    <feGaussianBlur
+                        in="noiseo"
+                        stdDeviation="5"
+                        result="noiseo"
+                    ></feGaussianBlur>
+
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.008"
+                        numOctaves="8"
+                        seed="4"
+                        result="o1"
+                    ></feTurbulence>
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.01"
+                        numOctaves="8"
+                        seed="4"
+                        result="o2"
+                    ></feTurbulence>
+
+                    <feMerge result="noiseo">
+                        <feMergeNode in="o1"></feMergeNode>
+                        <feMergeNode in="o1"></feMergeNode>
+                        <feMergeNode in="noiseo"></feMergeNode>
+                    </feMerge>
+
+                    <feGaussianBlur
+                        in="noiseo"
+                        stdDeviation="5"
+                        result="noiseo"
+                    ></feGaussianBlur>
+
+                    <feDiffuseLighting
+                        in="noiseo"
+                        surfaceScale="12"
+                        diffuseConstant="1"
+                        lighting-color="#11111"
+                        result="lit"
+                    >
+                        <feDistantLight azimuth="0" elevation="1"></feDistantLight>
+                    </feDiffuseLighting>
+
+                    <feBlend in="lit" in2="SourceGraphic" mode="normal"></feBlend>
+                </filter>
+            </svg>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 footer-content">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                <div>
+                    <a href="index.html" class="inline-block mb-3 focus:outline-none" aria-label="GeekSupport Home">
+                        <img src="IMAGE/logo.png" alt="GeekSupport" class="h-8 sm:h-9 w-auto max-h-10 object-contain object-left block" />
+                    </a>
+                    <p class="text-gray-300 mb-0 text-sm leading-relaxed">
+                        Your trusted partner for comprehensive IT support. We deliver reliable, secure, and efficient technology solutions to help your business thrive.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-base font-semibold mb-3">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="pricing.html" class="text-gray-300 hover:text-white transition-colors">Pricing & Features</a></li>
+                        <li><a href="index.html#services" class="text-gray-300 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="index.html#contact-form" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="terms-conditions.html" class="text-gray-300 hover:text-white transition-colors">Terms & Conditions</a></li>
+                        <li><a href="privacy-policy.html" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-base font-semibold mb-3">Contact Us</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center">
+                            <i class="ri-phone-line text-blue-400 mr-3"></i>
+                            <a href="tel:8663020916" class="text-gray-300 hover:text-white transition-colors">866-302-0916</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="ri-time-line text-blue-400 mr-3"></i>
+                            <span class="text-gray-300">24/7 Support Available</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="ri-mail-line text-blue-400 mr-3"></i>
+                            <span class="text-gray-300">support@geeksupport.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-base font-semibold mb-3">Follow Us</h4>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="ri-facebook-fill text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="ri-twitter-x-line text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="ri-linkedin-fill text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="ri-youtube-fill text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-4 text-center">
+                <p class="text-gray-400">
+                    Copyright © GeekSupport 2025 All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Smooth scroll for table of contents
+            document.querySelectorAll('.toc-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 100;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Highlight active section in TOC
+            const sections = document.querySelectorAll('[id]');
+            const tocLinks = document.querySelectorAll('.toc-link');
+
+            window.addEventListener('scroll', function() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Mobile TOC Side Drawer
+            const mobileTocToggle = document.getElementById('mobile-toc-toggle');
+            const mobileTocDrawer = document.getElementById('mobile-toc-drawer');
+            const mobileTocOverlay = document.getElementById('mobile-toc-overlay');
+            const mobileTocClose = document.getElementById('mobile-toc-close');
+
+            function openMobileToc() {
+                if (mobileTocDrawer && mobileTocOverlay) {
+                    mobileTocDrawer.classList.add('open');
+                    mobileTocOverlay.classList.remove('hidden');
+                    mobileTocOverlay.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeMobileToc() {
+                if (mobileTocDrawer && mobileTocOverlay) {
+                    mobileTocDrawer.classList.remove('open');
+                    mobileTocOverlay.classList.add('hidden');
+                    mobileTocOverlay.classList.remove('show');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            if (mobileTocToggle) {
+                mobileTocToggle.addEventListener('click', openMobileToc);
+            }
+
+            if (mobileTocClose) {
+                mobileTocClose.addEventListener('click', closeMobileToc);
+            }
+
+            if (mobileTocOverlay) {
+                mobileTocOverlay.addEventListener('click', closeMobileToc);
+            }
+
+            // Close TOC when clicking on a link (mobile only)
+            const drawerLinks = mobileTocDrawer ? mobileTocDrawer.querySelectorAll('.toc-link') : [];
+            drawerLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth < 1024) {
+                        closeMobileToc();
+                    }
+                });
+            });
+
+            // Parallax Effect for Banner
+            const parallaxBg = document.querySelector('.parallax-bg');
+            if (parallaxBg) {
+                window.addEventListener('scroll', function() {
+                    const scrolled = window.pageYOffset;
+                    const rate = scrolled * 0.5;
+                    parallaxBg.style.transform = `translateY(${rate}px)`;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

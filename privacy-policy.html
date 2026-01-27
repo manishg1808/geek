@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - GeekSupport</title>
+    <link rel="icon" type="image/png" href="IMAGE/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        .footer-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        .island {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: scale(1);
+            background: rgb(52, 65, 73);
+            filter: url(#octave1) brightness(2.25) contrast(1.05) blur(0.25rem);
+            z-index: 0;
+        }
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+        .mobile-call-btn {
+            animation: zoomInOut 2s ease-in-out infinite;
+        }
+        @keyframes zoomInOut {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .section-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, #f3f4f6, #e5e7eb);
+        }
+        .section-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-color: #d1d5db;
+        }
+        .toc-link {
+            transition: all 0.2s ease;
+        }
+        .toc-link:hover {
+            color: #3b82f6;
+            padding-left: 1rem;
+        }
+        .toc-link.active {
+            color: #3b82f6;
+            font-weight: 600;
+            padding-left: 1rem;
+        }
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+        #mobile-toc-drawer.open {
+            transform: translateX(0);
+        }
+        #mobile-toc-overlay.show {
+            display: block !important;
+        }
+        @media (max-width: 1023px) {
+            #mobile-toc-sidebar {
+                display: none !important;
+            }
+        }
+        .content-section h2 {
+            position: relative;
+        }
+        .section-card p {
+            text-align: justify;
+        }
+        .section-card li {
+            text-align: justify;
+        }
+        .section-card h2,
+        .section-card h3,
+        .section-card h4 {
+            text-align: left;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+        }
+        .privacy-hero-bg {
+            background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920') center/cover no-repeat;
+            background-attachment: fixed;
+            position: relative;
+        }
+        .privacy-hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        #mobile-banner-video {
+            z-index: 1;
+        }
+        .hero-section img {
+            z-index: 2;
+        }
+        .parallax-bg {
+            will-change: transform;
+            transition: transform 0.1s ease-out;
+        }
+        @media (max-width: 767px) {
+            .hero-section img {
+                display: none;
+            }
+            #mobile-banner-video {
+                display: block !important;
+            }
+        }
+        @media (min-width: 768px) {
+            #mobile-banner-video {
+                display: none !important;
+            }
+        }
+        @media (max-width: 768px) {
+            .privacy-hero-bg { background-attachment: scroll; }
+        }
+        .print-only-title {
+            display: none;
+        }
+        @media print {
+            @page {
+                margin: 1.5cm;
+            }
+            * {
+                background: white !important;
+                color: black !important;
+                box-shadow: none !important;
+            }
+            nav, footer, .print-btn, .cta-pattern-bg, .hero-section, .sticky, .toc-sidebar {
+                display: none !important;
+            }
+            .print-only-title {
+                display: block !important;
+                margin-bottom: 30px !important;
+                padding-bottom: 15px !important;
+                border-bottom: 2px solid #000 !important;
+            }
+            .section-card {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                border: 1px solid #ddd !important;
+                margin-bottom: 25px !important;
+                padding: 20px !important;
+                background: white !important;
+            }
+            body {
+                background: white !important;
+                font-size: 11pt !important;
+                line-height: 1.6 !important;
+            }
+            .main-content {
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+            }
+            .grid {
+                display: block !important;
+            }
+            .content-area {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+            h1, h2 {
+                page-break-after: avoid;
+                margin-top: 25px !important;
+                margin-bottom: 15px !important;
+                color: black !important;
+            }
+            h2 {
+                font-size: 18pt !important;
+            }
+            p, li {
+                color: black !important;
+                font-size: 11pt !important;
+            }
+            img {
+                max-width: 100% !important;
+            }
+            a {
+                color: black !important;
+                text-decoration: underline !important;
+            }
+            i {
+                display: none !important;
+            }
+            .flex {
+                display: block !important;
+            }
+            .gap-4 {
+                gap: 0 !important;
+            }
+        }
+        .cta-pattern-bg {
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-pattern-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.08) 2px, transparent 2px),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.08) 2px, transparent 2px),
+                linear-gradient(45deg, transparent 48%, rgba(59, 130, 246, 0.03) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(139, 92, 246, 0.03) 50%, transparent 52%);
+            background-size: 60px 60px, 60px 60px, 120px 120px, 120px 120px;
+            background-position: 0 0, 30px 30px, 0 0, 60px 60px;
+            opacity: 1;
+            animation: ctaPatternMove 25s linear infinite;
+        }
+        .cta-pattern-bg::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: ctaFloat 20s ease-in-out infinite;
+        }
+        @keyframes ctaPatternMove {
+            0% { 
+                background-position: 0 0, 30px 30px, 0 0, 60px 60px;
+            }
+            100% { 
+                background-position: 60px 60px, 90px 90px, 120px 120px, 180px 180px;
+            }
+        }
+        @keyframes ctaFloat {
+            0%, 100% { 
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            33% { 
+                transform: translate(-40px, -40px) rotate(120deg) scale(1.1);
+            }
+            66% { 
+                transform: translate(-80px, -80px) rotate(240deg) scale(1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center shrink-0">
+                    <a href="index.html" class="flex items-center focus:outline-none" aria-label="GeekSupport Home">
+                        <img src="IMAGE/logo.png" alt="GeekSupport" class="h-9 sm:h-10 md:h-11 w-auto max-h-12 object-contain object-left block" />
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="pricing.html" class="text-gray-700 hover:text-blue-600 transition-colors">Pricing & Features</a>
+                    <a href="index.html#services" class="text-gray-700 hover:text-blue-600 transition-colors">Services</a>
+                    <a href="index.html#contact-form" class="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
+                    <div class="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium">
+                        <i class="ri-phone-line mr-2"></i>866-302-0916
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center gap-3">
+                    <a href="tel:8663020916" class="mobile-call-btn text-red-500 p-2.5 flex items-center justify-center">
+                        <i class="ri-phone-line text-xl"></i>
+                    </a>
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600">
+                        <i class="ri-menu-line text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="pricing.html" class="block py-2 text-gray-700 hover:text-blue-600">Pricing & Features</a>
+                <a href="index.html#services" class="block py-2 text-gray-700 hover:text-blue-600">Services</a>
+                <a href="index.html#contact-form" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+                <div class="mt-4 bg-red-500 text-white px-4 py-2 rounded-full text-center">
+                    <i class="ri-phone-line mr-2"></i>866-302-0916
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section relative py-28 text-white overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0">
+            <!-- Mobile Video Background -->
+            <video id="mobile-banner-video" class="md:hidden absolute inset-0 w-full h-full object-cover opacity-30" autoplay muted loop playsinline>
+                <source src="IMAGE/privacy vdo.mp4" type="video/mp4">
+            </video>
+            <img src="https://www.vchartservices.com/wp-content/uploads/2024/05/privacy-policy.jpg" 
+                 alt="Privacy Policy" 
+                 class="w-full h-full object-cover parallax-bg">
+            <div class="absolute inset-0 bg-gray-900 opacity-60"></div>
+        </div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="inline-block mb-12">
+                    <i class="ri-shield-check-line text-6xl text-white drop-shadow-lg"></i>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg md:hidden">Privacy Policy</h1>
+                <p class="text-xl md:text-2xl opacity-95 mb-4 drop-shadow-md mt-12 md:mt-12">Outsourced IT services and support for businesses and self-employed professionals</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile TOC Toggle Button -->
+    <div class="lg:hidden bg-white border-b border-gray-200 sticky top-[73px] z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <button id="mobile-toc-toggle" class="w-full py-3 flex items-center justify-between text-gray-700 hover:text-blue-600 transition-colors">
+                <span class="flex items-center gap-2 font-semibold">
+                    <i class="ri-menu-line text-blue-600"></i>
+                    <span>Table of Contents</span>
+                </span>
+                <i id="mobile-toc-icon" class="ri-menu-line text-xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div id="mobile-toc-overlay" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-50 hidden transition-opacity"></div>
+
+    <!-- Mobile Sidebar Drawer -->
+    <div id="mobile-toc-drawer" class="lg:hidden fixed top-0 left-0 h-full w-80 bg-white shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
+        <div class="p-6">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-lg font-bold text-gray-900 flex items-center gap-2">
+                    <i class="ri-list-unordered text-blue-600"></i>
+                    <span>Table of Contents</span>
+                </h3>
+                <button id="mobile-toc-close" class="text-gray-500 hover:text-gray-700">
+                    <i class="ri-close-line text-2xl"></i>
+                </button>
+            </div>
+            <nav class="space-y-2">
+                <a href="#introduction" class="toc-link block text-sm text-gray-600 py-2">Introduction</a>
+                <a href="#information-collect" class="toc-link block text-sm text-gray-600 py-2">Information We Collect</a>
+                <a href="#usage-tracking" class="toc-link block text-sm text-gray-600 py-2">Usage Tracking & Cookies</a>
+                <a href="#use-information" class="toc-link block text-sm text-gray-600 py-2">Use of Information</a>
+                <a href="#children-privacy" class="toc-link block text-sm text-gray-600 py-2">Children's Privacy</a>
+                <a href="#customers" class="toc-link block text-sm text-gray-600 py-2">Customers & Employees</a>
+                <a href="#disclosure" class="toc-link block text-sm text-gray-600 py-2">Disclosure of Information</a>
+                <a href="#retention" class="toc-link block text-sm text-gray-600 py-2">Retention of Information</a>
+                <a href="#security" class="toc-link block text-sm text-gray-600 py-2">Security</a>
+                <a href="#social-media" class="toc-link block text-sm text-gray-600 py-2">Social Media Widgets</a>
+                <a href="#access" class="toc-link block text-sm text-gray-600 py-2">Access</a>
+                <a href="#changes" class="toc-link block text-sm text-gray-600 py-2">Changes to Policy</a>
+                <a href="#contact" class="toc-link block text-sm text-gray-600 py-2">Contact Information</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="main-content py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Print Button -->
+            <div class="flex justify-end mb-4">
+                <button onclick="window.print()" class="print-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105">
+                    <i class="ri-printer-line text-lg"></i>
+                    <span class="hidden sm:inline">Print Page</span>
+                </button>
+            </div>
+            <div class="grid lg:grid-cols-4 gap-8">
+                <!-- Table of Contents Sidebar -->
+                <div id="mobile-toc-sidebar" class="toc-sidebar lg:col-span-1 hidden lg:block">
+                    <div class="sticky top-24 bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                            <i class="ri-list-unordered text-blue-600"></i>
+                            <span>Table of Contents</span>
+                        </h3>
+                        <nav class="space-y-2">
+                            <a href="#introduction" class="toc-link block text-sm text-gray-600 py-2">Introduction</a>
+                            <a href="#information-collect" class="toc-link block text-sm text-gray-600 py-2">Information We Collect</a>
+                            <a href="#usage-tracking" class="toc-link block text-sm text-gray-600 py-2">Usage Tracking & Cookies</a>
+                            <a href="#use-information" class="toc-link block text-sm text-gray-600 py-2">Use of Information</a>
+                            <a href="#children-privacy" class="toc-link block text-sm text-gray-600 py-2">Children's Privacy</a>
+                            <a href="#customers" class="toc-link block text-sm text-gray-600 py-2">Customers & Employees</a>
+                            <a href="#disclosure" class="toc-link block text-sm text-gray-600 py-2">Disclosure of Information</a>
+                            <a href="#retention" class="toc-link block text-sm text-gray-600 py-2">Retention of Information</a>
+                            <a href="#security" class="toc-link block text-sm text-gray-600 py-2">Security</a>
+                            <a href="#social-media" class="toc-link block text-sm text-gray-600 py-2">Social Media Widgets</a>
+                            <a href="#access" class="toc-link block text-sm text-gray-600 py-2">Access</a>
+                            <a href="#changes" class="toc-link block text-sm text-gray-600 py-2">Changes to Policy</a>
+                            <a href="#contact" class="toc-link block text-sm text-gray-600 py-2">Contact Information</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="content-area lg:col-span-3 space-y-6">
+                    <!-- Print Only Title -->
+                    <div class="print-only-title hidden print:block mb-6">
+                        <h1 class="text-3xl font-bold mb-2">GeekSupport LLC – Privacy Policy</h1>
+                        <p class="text-lg"><strong>Effective Date: 1/1/2022</strong></p>
+                    </div>
+                    <!-- Introduction -->
+                    <div id="introduction" class="section-card rounded-lg p-10 shadow-sm">
+                        <div class="flex items-start gap-4 mb-6">
+                            <i class="ri-information-line text-blue-600 text-3xl"></i>
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4">GeekSupport LLC – Privacy Policy</h2>
+                                <p class="text-gray-700 leading-relaxed mb-4"><strong>Effective Date: 1/1/2022</strong></p>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">Introduction</h3>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    This privacy policy applies to the website geeksupport.com, and to GeekSupport services Websites and applications ("Websites"). These Websites are owned and operated by Geek Support LLC, a Texas corporation doing business as GeekSupport, and its subsidiaries ("GeekSupport"). This privacy policy describes how GeekSupport collects and uses the personal information you provide on our Websites. It also describes the choices available to you regarding our use of your personal information and how you can access and update this information.
+                                </p>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    GeekSupport delivers IT outsourcing services that allow companies to do what they do best. As their trusted IT advisor, GeekSupport helps businesses reduce IT costs, minimize employer-related worker risk, and relieve them of the administrative burden of IT. In order for GeekSupport to provide this vast array of services to its customers and their worksite employees, GeekSupport must collect certain personal information regarding the employees of its customers. Protecting the privacy of users of GeekSupport products and services is important to GeekSupport. GeekSupport makes use of any personal information you provide to GeekSupport only for the purposes outlined in this policy.
+                                </p>
+                                <p class="text-gray-700 leading-relaxed">
+                                    This policy does not apply to any information that you may provide directly to third parties including via third-party sites linked to the geeksupport.com Website or GeekSupport's service Websites. While GeekSupport actively seeks to ensure that its suppliers and service providers maintain high standards regarding the protection of personal information collected on their Websites, GeekSupport is not responsible for the privacy practices employed by such sites.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Information We Collect -->
+                    <div id="information-collect" class="section-card rounded-lg p-10 shadow-sm">
+                        <div class="flex items-start gap-4 mb-6">
+                            <i class="ri-database-2-line text-green-600 text-3xl"></i>
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4">Information We Collect</h2>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    The geeksupport.com Website collects identifying information such as, your name, company name, company address, and other contact information. We, GeekSupport, will never sell, rent, lend or trade this information in our possession to any other company for the purpose of contacting you regarding commercial services. If you are a GeekSupport customer or worksite employee of a customer, we collect the information necessary to provide our services, collecting it either from you directly or from your worksite employer. This collection is limited to the purpose of providing the service for which the customer has engaged GeekSupport. By voluntarily providing information or by accessing our Websites, you consent to the collection, use, and disclosure of your personally identifiable information in accordance with this Privacy Policy. When you download and/or use our services, we automatically collect information on the type of device you use, operating system version, and the device identifier (or "UDID"). We do not ask for, access, or track any location-based information from your mobile device at any time while downloading or using our mobile apps or services.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Usage Tracking and Cookies -->
+                    <div id="usage-tracking" class="section-card rounded-lg p-10 shadow-sm">
+                        <div class="flex items-start gap-4 mb-6">
+                            <i class="ri-cookie-line text-purple-600 text-3xl"></i>
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4">Usage Tracking and Cookies</h2>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    Technologies such as cookies, beacons, tags, and scripts are used by GeekSupport and our affiliates, analytics service providers, and third party providers of IT services we have engaged. These technologies are used in analyzing trends, administering the site, tracking users' movements around the site and to gather demographic information about our user base as a whole. We may receive reports based on the use of these technologies by these companies on an aggregated basis and, in the case of registered users, on an individual basis, as well.
+                                </p>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    In addition, we use cookies on certain pages of our sites. We may also offer certain features that are only available through the use of a cookie. Cookies enable you to enter your password less frequently during a session. Cookies can also help us provide you information that is targeted to your interests. Cookies are stored on your hard drive, not on our sites. Most cookies are "session cookies," meaning they are automatically deleted at the end of a session. We also use persistent cookies. A persistent cookie remains on your hard drive for an extended period of time and remembers your preferences. You are always free to decline our cookies if your browser permits, although in that case you may not be able to use certain features on our sites, and you may be required to reenter your password more frequently during a session. Our affiliates, tracking utility company and service providers use session ID cookies to make it easier for you to navigate our site.
+                                </p>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    As is true of most Websites, we gather certain information automatically and store it in log files. This information includes internet protocol (IP) addresses, browser type, internet service provider (ISP), referring/exit pages, operating system, date/time stamp, and clickstream data. We use this information to analyze trends, administer the site, track users' movements around the site, and gather demographic information about our user base as a whole. Sometimes, this automatically collected data can be linked to personally identifiable information, unless you have registered with the site, or created an account on the Website.
+                                </p>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    If you send us proposals or personal correspondence, such as emails or letters, or if other users or third parties send us correspondence about your activities or postings on our sites, we may collect and store such information in a file specific to you. If you submit questions via our sites, we may post your questions on the sites, and reprint them in various articles and customer communications. We will never include the name, contact or other identifiable information of people who submit questions, regardless of which channel we use to distribute content. We partner with a third party to either display advertising on our Website or to manage our advertising on other Websites. Our third party partner may use cookies or similar technologies in order to provide you with advertising based upon your browsing activities and interests.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Use of Information -->
+                    <div id="use-information" class="section-card rounded-lg p-10 shadow-sm">
+                        <div class="flex items-start gap-4 mb-6">
+                            <i class="ri-line-chart-line text-indigo-600 text-3xl"></i>
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4">Use of Information</h2>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    We use personally identifiable information about you to improve our marketing and promotional efforts, statistically analyze site usage, improve our content product offerings, customize our sites' content, layout and services, and provide our services (if applicable). We may use the email address, mailing address, and phone number we collect from you to respond to your inquiries and, to the extent permitted by applicable law, to contact you regarding administrative notices, new product offerings and communications relevant to your use of our sites. In some cases, we may use your personally identifiable information to inform you of new services, promotions, and other matters targeted to your interests.
+                                </p>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    You may choose to stop receiving our newsletter or marketing emails by following the unsubscribe instructions included at the bottom of those emails. We use information in the file we maintain specific to you, and other information we obtain from your current and past activities on our sites, to resolve disputes and troubleshoot problems. At times, we may look across multiple users to identify problems or resolve disputes, and we may evaluate information about you to look for users using multiple User IDs or aliases.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Children's Privacy -->
+                    <div id="children-privacy" class="section-card rounded-lg p-10 shadow-sm">
+                        <div class="flex items-start gap-4 mb-6">
+                            <i class="ri-user-smile-line text-pink-600 text-3xl"></i>
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4">Children's Privacy</h2>
+                                <p class="text-gray-700 leading-relaxed">
+                                    GeekSupport's Websites are intended for adults. We do not knowingly collect personal information from children under the age of 16. If we obtain knowledge that we have personally identifiable information about a child under 16 in retrievable form in our files, we will delete that information from our existing files. However, we will retain information from adult registered users about their dependents for purposes of administering benefits for their dependents, including dependents under the age of 16.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Customers and Worksite Employees -->
+                    <div id="customers" class="section-card rounded-lg p-10 shadow-sm">
+                        <div class="flex items-start gap-4 mb-6">
+                            <i class="ri-group-line text-teal-600 text-3xl"></i>
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4">Customers and Worksite Employees of GeekSupport</h2>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    If you are a customer (also referred to as a worksite employer) or worksite employee serviced by GeekSupport, you are a registered user and we may collect and maintain personally identifiable information including, but not limited to, name, address, phone number, Social Security number, taxpayer identification number, age, marital status, occupation, salary, benefits, dependent information, etc. through GeekSupport service Websites or other means disclosed to you. This information will be used to provide our IT-related services, which may include sharing such information with your worksite employer to the extent permitted by applicable law. Once you create a username and password, you can review and change the information you submitted in your profile section. If your registration information changes, you must promptly update, change or delete your registration information by logging into your profile page or by contacting us at support@geeksupport.com.
+                                </p>
+                                <p class="text-gray-700 leading-relaxed">
+                                    We may retain your information, including personally identifiable information, for as long as your account is active or as needed to provide you services, comply with our legal obligations, resolve disputes, enforce our agreements, manage risk, and/or fulfill our obligations to governments or insurance carriers. Further, such prior information is never completely removed from our databases due to technical constraints and the fact that we back up our systems. Therefore, you should not expect that all of your personally identifiable information will be completely removed from our databases in response to your requests.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Disclosure of Information -->
+                    <div id="disclosure" class="section-card rounded-lg p-10 shadow-sm">
+                        <div class="flex items-start gap-4 mb-6">
+                            <i class="ri-share-line text-red-600 text-3xl"></i>
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4">Disclosure of Information</h2>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    Unfortunately, due to the existing regulatory environment, we cannot ensure that all of your private communications and other personally identifiable information will never be disclosed in ways not otherwise described in this policy. By way of example (without limiting the foregoing): we may be forced to disclose information to the government or third parties under certain circumstances, such as to comply with a subpoena or similar legal process; we may use information when we believe in good faith that it is necessary to protect our rights, protect your safety or the safety of others; and we may respond to any other third party requests with your prior consent to do so.
+                                </p>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    Third parties may unlawfully intercept or access transmissions or private communications. Therefore, although we employ industry-standard practices to protect your privacy, no data transmission over the internet can be guaranteed to be 100% secure. As a result, we do not promise, and you should not expect, that your personally identifiable information or private communications will always remain private. As a general proposition, we do not sell, rent, lend or trade any personally identifiable information about you to any third party. The following paragraphs describe some of the ways that personally identifiable information about you may be disclosed to third parties.
+                                </p>
+                                
+                                <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">Legal Requests</h3>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    We cooperate with law enforcement and other third parties to enforce laws, intellectual property rights and other rights. Therefore, local, state, federal, territorial, provincial and international law enforcement can request and may receive your personally identifiable information. By your use of the geeksupport.com Website, GeekSupport's service Websites, or GeekSupport's services (as applicable), you hereby accept these terms and you authorize us to disclose any information about you to law enforcement or other government officials as we, in our sole discretion, believe necessary or appropriate, in connection with an investigation of fraud, intellectual property infringements or other activity that is illegal or may expose us to legal liability.
+                                </p>
+
+                                <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">Business Transactions</h3>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    We reserve the right to transfer personally identifiable information as part of a sale or transfer of all or a relevant portion of our business or assets. Any such sale would be subject to appropriate privacy protections for you. You will be notified via email and/or a prominent notice on our Website of any change in ownership or uses of your personally identifiable information, as well as any choices you may have regarding your personally identifiable information.
+                                </p>
+
+                                <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">Suppliers and Other Service Providers</h3>
+                                <p class="text-gray-700 leading-relaxed">
+                                    We may use third-party suppliers and service providers to facilitate provision of our professional employer and IT-related services. For example, we may outsource the operations of one or more aspects of our sites to a supplier or service provider who performs services according to our requirements. In all cases, we restrict how these suppliers and other service providers may access, use and disclose information received from our Websites. We do not permit these suppliers and other service providers to access information about you, other than that information necessary for them to complete the services for which they are contracted. Under no circumstances do we allow them to disclose, sell, rent, lend, trade or in any other way transmit data about you to third parties, and we use contractual means to require them to provide appropriate protection for your personally identifiable information and to use it only for the services for which they are contracted.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Retention of Information -->
+                    <div id="retention" class="section-card rounded-lg p-10 shadow-sm">
+                        <div class="flex items-start gap-4 mb-6">
+                            <i class="ri-archive-line text-orange-600 text-3xl"></i>
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4">Retention of Information</h2>
+                                <p class="text-gray-700 leading-relaxed">
+                                    We retain personally identifiable information that we collect only so long as reasonably necessary to fulfill the purposes for which it was collected and to meet legal requirements. Please refer to the Geek Support LLC Document Retention and Destruction Policy which provides for the destruction of personally identifiable information after it is no longer needed for the purposes for which it was collected and legal requirements have been met.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security -->
+                    <div id="security" class="section-card rounded-lg p-10 shadow-sm">
+                        <div class="flex items-start gap-4 mb-6">
+                            <i class="ri-lock-line text-green-600 text-3xl"></i>
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4">Security</h2>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    We use industry standard methods, such as firewalls and Secure Socket Layers (SSL), to safeguard the confidentiality of personally identifiable information about you. For registered users, personally identifiable information will include name, address, contact information, Social Security number, date of birth and payroll and benefits information related to the services we provide to registered users. Using SSL means that data such as names and passwords cannot be easily deciphered by outside users.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Widgets -->
+                    <div id="social-media" class="section-card rounded-lg p-10 shadow-sm">
+                        <div class="flex items-start gap-4 mb-6">
+                            <i class="ri-facebook-line text-blue-600 text-3xl"></i>
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4">Social Media Widgets</h2>
+                                <p class="text-gray-700 leading-relaxed">
+                                    Our Website may include social media features, such as the Facebook button, and/or widgets. These features may collect your IP address, which page you are visiting on our site and may set a cookie to enable the feature to function properly. Social media features and widgets are either hosted by a third party or hosted directly on our site. Your interactions with these features are governed by the privacy policy of the company providing it.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Access -->
+                    <div id="access" class="section-card rounded-lg p-10 shadow-sm">
+                        <div class="flex items-start gap-4 mb-6">
+                            <i class="ri-user-settings-line text-cyan-600 text-3xl"></i>
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4">Access</h2>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    We will allow you access to your Personal Information and allow you to correct, amend or delete inaccurate information, except to the extent permitted by applicable law where the burden or expense of providing access would be disproportionate to the risks to your privacy in the case in question or where the rights of persons other than you would be violated. If access to Personal Information is denied, we will provide you with the reason for such denial. You may request the correction, amendment or deletion of your inaccurate personal information by contacting us at legal@geeksupport.com. We will respond to these requests within a reasonable timeframe.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Changes in this Privacy Policy -->
+                    <div id="changes" class="section-card rounded-lg p-10 shadow-sm">
+                        <div class="flex items-start gap-4 mb-6">
+                            <i class="ri-refresh-line text-yellow-600 text-3xl"></i>
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4">Changes in this Privacy Policy</h2>
+                                <p class="text-gray-700 leading-relaxed">
+                                    We reserve the right to change this policy at any time without prior notice to users of this site. Please check here regularly to learn of any changes to this policy. If we make any material changes we will notify you by email or by means of a notice on this site prior to the change becoming effective. We encourage you to periodically review this page for the latest information on our privacy practices.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div id="contact" class="section-card rounded-lg p-10 shadow-sm">
+                        <div class="flex items-start gap-4 mb-6">
+                            <i class="ri-mail-line text-blue-600 text-3xl"></i>
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold text-gray-900 mb-4">Contact Information</h2>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    Geek Support LLC 1722 Routh St Suite 900, Dallas, TX 75201
+                                </p>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    Attention: Legal Administrator Email: legal@geeksupport.com.
+                                </p>
+                                <p class="text-gray-700 leading-relaxed mb-4">
+                                    This Privacy Policy was last updated on October 1, 2025, and may be amended from time to time by the posting of a revised policy on this Website. If we make any material changes we will notify you by email or by means of a notice on this site prior to the change becoming effective. We encourage you to periodically review this page for the latest information on our privacy practices.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer Note -->
+                    <div class="bg-gray-100 rounded-xl p-6">
+                        <div class="text-sm text-gray-600 space-y-2">
+                            <p><strong>Copyright Notification:</strong> geeksupport.com and GeekSupport's other service Websites are the property of GeekSupport. ©2021, All rights reserved.</p>
+                            <p><strong>Trademark Information:</strong> The GeekSupport logo and name are registered trademarks of GeekSupport. All other trademarks, trade names, service marks and logos appearing on the GeekSupport Website and GeekSupport's service Websites belong to their respective companies.</p>
+                            <p><strong>Website Administrator:</strong> Send comments to info@geeksupport.com.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-pattern-bg py-8 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <!-- Heading -->
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-gray-900">
+                    Questions About Our Privacy Policy?
+                </h2>
+                
+                <!-- Subheading -->
+                <p class="text-base md:text-lg text-gray-700 mb-4 max-w-2xl mx-auto leading-relaxed">
+                    We're here to help. Contact our legal team or schedule a consultation to learn more about how we protect your privacy and data.
+                </p>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4">
+                    <a href="index.html#contact-form" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-200 inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        <span>Contact Us</span>
+                        <i class="ri-arrow-right-line text-sm"></i>
+                    </a>
+                    
+                    <a href="tel:8663020916" class="w-full sm:w-auto bg-transparent border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold text-sm hover:bg-blue-600 hover:text-white transition-all duration-200 inline-flex items-center justify-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105">
+                        <i class="ri-phone-line"></i>
+                        <span>866-302-0916</span>
+                    </a>
+                </div>
+                
+                <!-- Trust Indicators -->
+                <div class="pt-3 border-t border-gray-200">
+                    <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
+                        <div class="flex items-center gap-2">
+                            <i class="ri-shield-check-line text-blue-600"></i>
+                            <span>Secure & Compliant</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="ri-lock-line text-blue-600"></i>
+                            <span>Data Protected</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="ri-customer-service-2-line text-blue-600"></i>
+                            <span>24/7 Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-bg text-white py-8">
+        <div class="island">
+            <svg height="0" width="0">
+                <filter id="octave1">
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.002"
+                        numOctaves="8"
+                        seed="4"
+                        result="o1"
+                    ></feTurbulence>
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.004"
+                        numOctaves="8"
+                        seed="4"
+                        result="o2"
+                    ></feTurbulence>
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.0005"
+                        numOctaves="8"
+                        seed="4"
+                        result="o3"
+                    ></feTurbulence>
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.009"
+                        numOctaves="8"
+                        seed="4"
+                        result="o4"
+                    ></feTurbulence>
+
+                    <feMerge result="finalIsland">
+                        <feMergeNode in="o1"></feMergeNode>
+                        <feMergeNode in="o3"></feMergeNode>
+                        <feMergeNode in="o1"></feMergeNode>
+                        <feMergeNode in="o3"></feMergeNode>
+                    </feMerge>
+
+                    <feGaussianBlur
+                        in="finalIsland"
+                        stdDeviation="5"
+                        result="noiseo"
+                    ></feGaussianBlur>
+
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.004"
+                        numOctaves="8"
+                        seed="4"
+                        result="o1"
+                    ></feTurbulence>
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.008"
+                        numOctaves="8"
+                        seed="4"
+                        result="o2"
+                    ></feTurbulence>
+
+                    <feMerge result="noiseo">
+                        <feMergeNode in="o2"></feMergeNode>
+                        <feMergeNode in="o4"></feMergeNode>
+                        <feMergeNode in="noiseo"></feMergeNode>
+                    </feMerge>
+
+                    <feGaussianBlur
+                        in="noiseo"
+                        stdDeviation="5"
+                        result="noiseo"
+                    ></feGaussianBlur>
+
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.008"
+                        numOctaves="8"
+                        seed="4"
+                        result="o1"
+                    ></feTurbulence>
+                    <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.01"
+                        numOctaves="8"
+                        seed="4"
+                        result="o2"
+                    ></feTurbulence>
+
+                    <feMerge result="noiseo">
+                        <feMergeNode in="o1"></feMergeNode>
+                        <feMergeNode in="o1"></feMergeNode>
+                        <feMergeNode in="noiseo"></feMergeNode>
+                    </feMerge>
+
+                    <feGaussianBlur
+                        in="noiseo"
+                        stdDeviation="5"
+                        result="noiseo"
+                    ></feGaussianBlur>
+
+                    <feDiffuseLighting
+                        in="noiseo"
+                        surfaceScale="12"
+                        diffuseConstant="1"
+                        lighting-color="#11111"
+                        result="lit"
+                    >
+                        <feDistantLight azimuth="0" elevation="1"></feDistantLight>
+                    </feDiffuseLighting>
+
+                    <feBlend in="lit" in2="SourceGraphic" mode="normal"></feBlend>
+                </filter>
+            </svg>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 footer-content">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                <div>
+                    <a href="index.html" class="inline-block mb-3 focus:outline-none" aria-label="GeekSupport Home">
+                        <img src="IMAGE/logo.png" alt="GeekSupport" class="h-8 sm:h-9 w-auto max-h-10 object-contain object-left block" />
+                    </a>
+                    <p class="text-gray-300 mb-0 text-sm leading-relaxed">
+                        Your trusted partner for comprehensive IT support. We deliver reliable, secure, and efficient technology solutions to help your business thrive.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-base font-semibold mb-3">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="pricing.html" class="text-gray-300 hover:text-white transition-colors">Pricing & Features</a></li>
+                        <li><a href="index.html#services" class="text-gray-300 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="index.html#contact-form" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="terms-conditions.html" class="text-gray-300 hover:text-white transition-colors">Terms & Conditions</a></li>
+                        <li><a href="privacy-policy.html" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-base font-semibold mb-3">Contact Us</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center">
+                            <i class="ri-phone-line text-blue-400 mr-3"></i>
+                            <a href="tel:8663020916" class="text-gray-300 hover:text-white transition-colors">866-302-0916</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="ri-time-line text-blue-400 mr-3"></i>
+                            <span class="text-gray-300">24/7 Support Available</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="ri-mail-line text-blue-400 mr-3"></i>
+                            <span class="text-gray-300">support@geeksupport.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-base font-semibold mb-3">Follow Us</h4>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="ri-facebook-fill text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="ri-twitter-x-line text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="ri-linkedin-fill text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i class="ri-youtube-fill text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-4 text-center">
+                <p class="text-gray-400">
+                    Copyright © GeekSupport 2025 All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Smooth scroll for table of contents
+            document.querySelectorAll('.toc-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 100;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Highlight active section in TOC
+            const sections = document.querySelectorAll('[id]');
+            const tocLinks = document.querySelectorAll('.toc-link');
+
+            window.addEventListener('scroll', function() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Mobile TOC Side Drawer
+            const mobileTocToggle = document.getElementById('mobile-toc-toggle');
+            const mobileTocDrawer = document.getElementById('mobile-toc-drawer');
+            const mobileTocOverlay = document.getElementById('mobile-toc-overlay');
+            const mobileTocClose = document.getElementById('mobile-toc-close');
+
+            function openMobileToc() {
+                if (mobileTocDrawer && mobileTocOverlay) {
+                    mobileTocDrawer.classList.add('open');
+                    mobileTocOverlay.classList.remove('hidden');
+                    mobileTocOverlay.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeMobileToc() {
+                if (mobileTocDrawer && mobileTocOverlay) {
+                    mobileTocDrawer.classList.remove('open');
+                    mobileTocOverlay.classList.add('hidden');
+                    mobileTocOverlay.classList.remove('show');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            if (mobileTocToggle) {
+                mobileTocToggle.addEventListener('click', openMobileToc);
+            }
+
+            if (mobileTocClose) {
+                mobileTocClose.addEventListener('click', closeMobileToc);
+            }
+
+            if (mobileTocOverlay) {
+                mobileTocOverlay.addEventListener('click', closeMobileToc);
+            }
+
+            // Close TOC when clicking on a link (mobile only)
+            const drawerLinks = mobileTocDrawer ? mobileTocDrawer.querySelectorAll('.toc-link') : [];
+            drawerLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth < 1024) {
+                        closeMobileToc();
+                    }
+                });
+            });
+
+            // Parallax Effect for Banner
+            const parallaxBg = document.querySelector('.parallax-bg');
+            if (parallaxBg) {
+                window.addEventListener('scroll', function() {
+                    const scrolled = window.pageYOffset;
+                    const rate = scrolled * 0.5;
+                    parallaxBg.style.transform = `translateY(${rate}px)`;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

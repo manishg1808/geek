@@ -1,5 +1,14 @@
-// Mobile menu toggle
+// AOS (Animate On Scroll) - init
 document.addEventListener('DOMContentLoaded', function() {
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 600,
+            offset: 80,
+            once: true,
+            easing: 'ease-out'
+        });
+    }
+
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
 
@@ -7,10 +16,81 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenu.classList.toggle('hidden');
     });
 
+    // Consultation popup modal
+    const consultationModal = document.getElementById('consultationModal');
+    const openConsultationModalBtn = document.getElementById('openConsultationModal');
+    const closeConsultationModalBtn = document.getElementById('closeConsultationModal');
+    const closeConsultationModalBackdrop = document.getElementById('closeConsultationModalBackdrop');
+    const cancelConsultationBtn = document.getElementById('cancelConsultationBtn');
+
+    // Auto-show contact popup: 5 sec after load, max 2 times
+    let consultationPopupShown = 0;
+    const maxConsultationPopups = 2;
+    const consultationPopupDelayMs = 5000;
+
+    function openConsultationModal() {
+        if (consultationModal) {
+            consultationModal.classList.add('show');
+            consultationModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+    function closeConsultationModal() {
+        if (consultationModal) {
+            consultationModal.classList.remove('show');
+            consultationModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+        // Schedule next popup (2nd time) 5 sec after close, if not yet shown twice
+        if (consultationPopupShown < maxConsultationPopups) {
+            setTimeout(function() {
+                if (consultationModal && consultationPopupShown < maxConsultationPopups) {
+                    openConsultationModal();
+                    consultationPopupShown++;
+                }
+            }, consultationPopupDelayMs);
+        }
+    }
+
+    function showConsultationPopupOnce() {
+        if (!consultationModal || consultationPopupShown >= maxConsultationPopups) return;
+        consultationPopupShown++;
+        openConsultationModal();
+    }
+
+    if (openConsultationModalBtn) {
+        openConsultationModalBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openConsultationModal();
+        });
+    }
+    const openConsultationFromQuickConnect = document.getElementById('openConsultationModalFromQuickConnect');
+    if (openConsultationFromQuickConnect) {
+        openConsultationFromQuickConnect.addEventListener('click', function(e) {
+            e.preventDefault();
+            openConsultationModal();
+        });
+    }
+    if (closeConsultationModalBtn) closeConsultationModalBtn.addEventListener('click', closeConsultationModal);
+    if (closeConsultationModalBackdrop) closeConsultationModalBackdrop.addEventListener('click', closeConsultationModal);
+    if (cancelConsultationBtn) cancelConsultationBtn.addEventListener('click', closeConsultationModal);
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && consultationModal && consultationModal.classList.contains('show')) {
+            closeConsultationModal();
+        }
+    });
+
+    // First popup: 5 seconds after page load
+    setTimeout(showConsultationPopupOnce, consultationPopupDelayMs);
+
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('a[href^="#"]');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
+            if (this.id === 'openConsultationModal') {
+                e.preventDefault();
+                return;
+            }
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
@@ -173,10 +253,114 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
-            // Simulate form submission (replace with actual API call)
-            setTimeout(() => {
-                showSuccess();
-            }, 2000);
+            // Send form data to email via Web3Forms API
+            const formDataToSend = new FormData(contactForm);
+            formDataToSend.append('from_name', 'GeekSupport Contact Form');
+            formDataToSend.append('subject', `New contact: ${data.firstName} ${data.lastName}`);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formDataToSend
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    showSuccess();
+                } else {
+                    showError(result.message || 'Sorry, there was an error sending your message. Please try again or call us directly.');
+                }
+            })
+            .catch(() => {
+                showError('Network error. Please check your connection and try again, or call us at 1-855-242-6660.');
+            });
+        });
+    }
+
+    // Consultation popup form submit
+    const contactFormPopup = document.getElementById('contactFormPopup');
+    const submitBtnPopup = document.getElementById('submitBtnPopup');
+    const btnTextPopup = document.getElementById('btnTextPopup');
+    const loadingIconPopup = document.getElementById('loadingIconPopup');
+    const successMessagePopup = document.getElementById('successMessagePopup');
+    const errorMessagePopup = document.getElementById('errorMessagePopup');
+
+    if (contactFormPopup) {
+        contactFormPopup.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!submitBtnPopup || !btnTextPopup || !loadingIconPopup || !successMessagePopup || !errorMessagePopup) return;
+
+            submitBtnPopup.disabled = true;
+            btnTextPopup.textContent = 'Sending...';
+            if (loadingIconPopup) loadingIconPopup.classList.remove('hidden');
+            successMessagePopup.classList.add('hidden');
+            errorMessagePopup.classList.add('hidden');
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            const requiredFields = ['firstName', 'lastName', 'email'];
+            let hasErrors = false;
+            const popupIds = { firstName: 'firstNamePopup', lastName: 'lastNamePopup', email: 'emailPopup', phone: 'phonePopup' };
+            requiredFields.forEach(field => {
+                const el = document.getElementById(popupIds[field] || field);
+                if (el && (!data[field] || data[field].trim() === '')) {
+                    el.classList.add('border-red-500');
+                    el.classList.remove('border-gray-300');
+                    hasErrors = true;
+                } else if (el) {
+                    el.classList.remove('border-red-500');
+                    el.classList.add('border-gray-300');
+                }
+            });
+            if (hasErrors) {
+                submitBtnPopup.disabled = false;
+                btnTextPopup.textContent = 'Send Message';
+                loadingIconPopup.classList.add('hidden');
+                errorMessagePopup.classList.remove('hidden');
+                const errText = errorMessagePopup.querySelector('.error-text');
+                if (errText) errText.textContent = 'Please fill in all required fields.';
+                return;
+            }
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                const emailEl = document.getElementById('emailPopup');
+                if (emailEl) emailEl.classList.add('border-red-500');
+                submitBtnPopup.disabled = false;
+                btnTextPopup.textContent = 'Send Message';
+                loadingIconPopup.classList.add('hidden');
+                errorMessagePopup.classList.remove('hidden');
+                const errText = errorMessagePopup.querySelector('.error-text');
+                if (errText) errText.textContent = 'Please enter a valid email address.';
+                return;
+            }
+            const formDataToSend = new FormData(contactFormPopup);
+            formDataToSend.append('from_name', 'GeekSupport Contact Form');
+            formDataToSend.append('subject', 'New contact: ' + data.firstName + ' ' + data.lastName);
+            fetch('https://api.web3forms.com/submit', { method: 'POST', body: formDataToSend })
+                .then(response => response.json())
+                .then(function(result) {
+                    submitBtnPopup.disabled = false;
+                    btnTextPopup.textContent = 'Send Message';
+                    loadingIconPopup.classList.add('hidden');
+                    if (result.success) {
+                        successMessagePopup.classList.remove('hidden');
+                        contactFormPopup.reset();
+                        setTimeout(function() { successMessagePopup.classList.add('hidden'); }, 5000);
+                    } else {
+                        errorMessagePopup.classList.remove('hidden');
+                        const errText = errorMessagePopup.querySelector('.error-text');
+                        if (errText) errText.textContent = result.message || 'Sorry, there was an error. Please try again.';
+                        setTimeout(function() { errorMessagePopup.classList.add('hidden'); }, 5000);
+                    }
+                })
+                .catch(function() {
+                    submitBtnPopup.disabled = false;
+                    btnTextPopup.textContent = 'Send Message';
+                    loadingIconPopup.classList.add('hidden');
+                    errorMessagePopup.classList.remove('hidden');
+                    const errText = errorMessagePopup.querySelector('.error-text');
+                    if (errText) errText.textContent = 'Network error. Please try again or call 1-855-242-6660.';
+                    setTimeout(function() { errorMessagePopup.classList.add('hidden'); }, 5000);
+                });
         });
     }
 

@@ -145,7 +145,7 @@
                 color: black !important;
                 box-shadow: none !important;
             }
-            nav, footer, .print-btn, .cta-pattern-bg, .hero-section, .sticky, .toc-sidebar {
+            nav, footer, .print-btn, .cta-pattern-bg, .hero-section, .sticky, .toc-sidebar, .back-to-top {
                 display: none !important;
             }
             .print-only-title {
@@ -273,6 +273,7 @@
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
                     <a href="pricing.html" class="text-gray-700 hover:text-blue-600 transition-colors">Pricing & Features</a>
                     <a href="index.html#services" class="text-gray-700 hover:text-blue-600 transition-colors">Services</a>
                     <a href="index.html#contact-form" class="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
@@ -291,6 +292,7 @@
             </div>
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
                 <a href="pricing.html" class="block py-2 text-gray-700 hover:text-blue-600">Pricing & Features</a>
                 <a href="index.html#services" class="block py-2 text-gray-700 hover:text-blue-600">Services</a>
                 <a href="index.html#contact-form" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
@@ -819,6 +821,7 @@
                 <div>
                     <h4 class="text-base font-semibold mb-3">Quick Links</h4>
                     <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
                         <li><a href="pricing.html" class="text-gray-300 hover:text-white transition-colors">Pricing & Features</a></li>
                         <li><a href="index.html#services" class="text-gray-300 hover:text-white transition-colors">Services</a></li>
                         <li><a href="index.html#contact-form" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
@@ -869,6 +872,10 @@
                 <p class="text-gray-400">
                     Copyright © GeekSupport 2025 All Rights Reserved.
                 </p>
+                <div class="mt-4 flex justify-center space-x-6 text-sm text-gray-500">
+                    <a href="privacy-policy.html" class="hover:text-gray-300 transition-colors">Privacy Policy</a>
+                    <a href="terms-conditions.html" class="hover:text-gray-300 transition-colors">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
@@ -978,7 +985,27 @@
                     parallaxBg.style.transform = `translateY(${rate}px)`;
                 });
             }
+
+            // Back to Top button
+            const backToTopBtn = document.getElementById('backToTop');
+            if (backToTopBtn) {
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        backToTopBtn.classList.remove('opacity-0', 'invisible');
+                        backToTopBtn.classList.add('opacity-100', 'visible');
+                    } else {
+                        backToTopBtn.classList.remove('opacity-100', 'visible');
+                        backToTopBtn.classList.add('opacity-0', 'invisible');
+                    }
+                });
+                backToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
         });
     </script>
+    <button id="backToTop" class="back-to-top fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 z-50 flex items-center justify-center" aria-label="Scroll to top">
+        <i class="ri-arrow-up-line text-xl"></i>
+    </button>
 </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing & Features - GeekSupport</title>
-    <link rel="icon" type="image/png" href="IMAGE/favicon.png">
+    <link rel="icon" type="image/png" href="IMAGE/logo.png" sizes="any">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -224,10 +224,11 @@
     <!-- Navigation -->
     <nav class="bg-white shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
+            <div class="flex justify-between items-center py-0">
                 <div class="flex items-center shrink-0">
-                    <a href="index.html" class="flex items-center focus:outline-none" aria-label="GeekSupport Home">
-                        <img src="IMAGE/logo.png" alt="GeekSupport" class="h-9 sm:h-10 md:h-11 w-auto max-h-12 object-contain object-left block" />
+                    <a href="index.html" class="flex flex-col items-start focus:outline-none" aria-label="Geek Support LLC Home">
+                        <img src="IMAGE/logo.png" alt="Geek Support LLC" class="h-9 sm:h-10 md:h-11 w-auto max-h-12 object-contain object-left block" width="180" height="56" />
+                        <span class="text-[9px] sm:text-[10px] font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mt-0 tracking-wide leading-tight">GeekSupport LLC</span>
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
@@ -630,12 +631,12 @@
                 
                 <!-- CTA Buttons -->
                 <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4">
-                    <a href="index.html#contact-form" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-200 inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105">
+                    <a href="index.html#contact-form" class="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-200 inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105">
                         <span>Contact Us</span>
                         <i class="fas fa-arrow-right text-sm"></i>
                     </a>
                     
-                    <a href="tel:18552426660" class="w-full sm:w-auto bg-transparent border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold text-sm hover:bg-blue-600 hover:text-white transition-all duration-200 inline-flex items-center justify-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105">
+                    <a href="tel:18552426660" class="w-full sm:w-auto bg-transparent border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold text-sm hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:border-transparent transition-all duration-200 inline-flex items-center justify-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105">
                         <i class="fas fa-phone"></i>
                         <span>1-855-242-6660</span>
                     </a>
@@ -780,8 +781,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 footer-content">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
                 <div>
-                    <a href="index.html" class="inline-block mb-3 focus:outline-none" aria-label="GeekSupport Home">
-                        <img src="IMAGE/logo.png" alt="GeekSupport" class="h-8 sm:h-9 w-auto max-h-10 object-contain object-left block" />
+                    <a href="index.html" class="inline-block mb-3 focus:outline-none" aria-label="Geek Support LLC Home">
+                        <img src="IMAGE/logo.png" alt="Geek Support LLC" class="h-14 sm:h-16 w-auto max-h-20 object-contain object-left block" width="240" height="75" loading="lazy" />
+                        <span class="text-[10px] sm:text-xs font-medium bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent mt-0.5 tracking-wide block">GeekSupport LLC</span>
                     </a>
                     <p class="text-gray-300 mb-0 text-sm leading-relaxed">
                         Your trusted partner for comprehensive IT support. We deliver reliable, secure, and efficient technology solutions to help your business thrive.
@@ -811,7 +813,7 @@
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-envelope text-blue-400 mr-3"></i>
-                            <span class="text-gray-300">support@geeksupport.com</span>
+                            <a href="mailto:support@geekexpertllc.com" class="text-gray-300 hover:text-white transition-colors">support@geekexpertllc.com</a>
                         </div>
                         <div class="flex items-start">
                             <i class="fas fa-map-marker-alt text-blue-400 mr-3 mt-0.5"></i>
@@ -822,16 +824,16 @@
                 <div>
                     <h4 class="text-base font-semibold mb-3">Follow Us</h4>
                     <div class="flex space-x-3">
-                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 transition-all duration-300">
                             <i class="fab fa-facebook-f text-sm"></i>
                         </a>
-                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 transition-all duration-300">
                             <i class="fab fa-twitter text-sm"></i>
                         </a>
-                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 transition-all duration-300">
                             <i class="fab fa-linkedin-in text-sm"></i>
                         </a>
-                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 transition-all duration-300">
                             <i class="fab fa-youtube text-sm"></i>
                         </a>
                     </div>
@@ -850,7 +852,7 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 z-50">
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white w-12 h-12 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 z-50">
         <i class="fas fa-arrow-up"></i>
     </button>
 

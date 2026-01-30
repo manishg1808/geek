@@ -6,7 +6,7 @@
     <meta name="description" content="GeekSupport provides comprehensive IT support and managed services for small and medium businesses. Get reliable remote helpdesk support, cybersecurity, and secure IT management.">
     <meta name="keywords" content="IT support, managed IT services, remote IT support, cybersecurity, business IT support, systems monitoring, data backup, helpdesk support, GeekSupport, professional IT support services, remote IT helpdesk, IT infrastructure management, cybersecurity solutions for business, IT monitoring and maintenance, data backup and recovery services, cloud IT support, technical support services, IT solutions provider">
     <title>GeekSupport - Complete IT Support for Small to Medium Organizations</title>
-    <link rel="icon" type="image/png" href="IMAGE/favicon.png">
+    <link rel="icon" type="image/png" href="IMAGE/logo.png" sizes="any">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet">
@@ -492,16 +492,47 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+        /* Services grid */
+        .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        @media (min-width: 768px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(5, 1fr); } }
+        .service-card { transition: all 0.3s ease; }
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        /* Choose US / 3 Reasons cards */
+        .cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+        .card .icon-box { transition: transform 0.3s ease; }
+        .card:hover .icon-box { transform: scale(1.1); }
+        /* Help section */
+        .help-section { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
+        @media (min-width: 1024px) { .help-section { grid-template-columns: 1fr 1.2fr; } }
+        .help-highlight { background: linear-gradient(135deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; }
+        .help-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
+        .help-card { transition: all 0.3s ease; }
+        .help-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
+        .help-btn { display: inline-block; background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: #fff; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; transition: all 0.3s ease; }
+        .help-btn:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(59,130,246,0.35); }
+        /* Choose us section (Why you'll love) */
+        .choose-us-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .choose-card { transition: all 0.3s ease; }
+        .choose-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .choose-icon.icon-red { background: transparent; color: #dc2626; }
+        .choose-icon.icon-blue { background: transparent; color: #2563eb; }
+        .choose-icon.icon-green { background: transparent; color: #059669; }
+        /* Who we are info section */
+        .info .section { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: start; }
+        @media (min-width: 1024px) { .info .section { grid-template-columns: 0.9fr 1.1fr; } }
+        .info .section-right .highlight { color: #4f46e5; font-weight: 600; }
     </style>
 </head>
-<body class="bg-gray-50 font-sans pt-20">
+<body class="bg-gray-50 font-sans pt-10">
     <!-- Navigation -->
     <nav class="bg-white/80 backdrop-blur-md shadow-lg fixed top-0 left-0 right-0 w-full z-[9998]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
+            <div class="flex justify-between items-center py-0">
                 <div class="flex items-center shrink-0">
-                    <a href="#hero" class="flex items-center focus:outline-none" aria-label="GeekSupport Home">
-                        <img src="IMAGE/logo.png" alt="GeekSupport" class="h-9 sm:h-10 md:h-11 w-auto max-h-12 object-contain object-left block" />
+                    <a href="#hero" class="flex flex-col items-start focus:outline-none" aria-label="Geek Support LLC Home">
+                        <img src="IMAGE/logo.png" alt="Geek Support LLC" class="h-10 sm:h-11 md:h-12 w-auto max-h-16 object-contain object-left block" width="200" height="62" />
+                        <span class="text-[9px] sm:text-[10px] font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mt-0 tracking-wide leading-tight">GeekSupport LLC</span>
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
@@ -564,44 +595,164 @@
     <!-- Services Section -->
     <section id="services" class="py-12 md:py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    With GeekSupport as your IT partner you will get:
-                </h2>
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-lg card-hover slide-in-left hover-lift stagger-1" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center justify-center mb-6 service-icon">
-                        <i class="ri-customer-service-line text-4xl text-blue-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Remote IT Helpdesk Support</h3>
-                    <p class="text-gray-600">
-                        Unlimited support for all employees, at home or at the office, to ensure your employees stay connected, productive, and secure.
-                    </p>
+            <div class="services-grid" data-aos="fade-up">
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg border border-gray-100" id="laptop">
+                    <i class="ri-computer-line text-4xl text-blue-600 block mb-4"></i>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Laptop & Desktop</h3>
+                    <p class="text-gray-600 text-sm">Repair & maintenance for laptops and desktop systems.</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg card-hover slide-in-right hover-lift stagger-2" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-center justify-center mb-6 service-icon">
-                        <i class="ri-shield-check-line text-4xl text-green-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Managed IT Services</h3>
-                    <p class="text-gray-600">
-                        Cybersecurity and systems monitoring, email security and systems vulnerability scans, preventive maintenance, VPN configuration, employee onboarding and computer lockdown at termination, mobile device management, procurement and provision, and much more.
-                    </p>
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg border border-gray-100" id="wifi">
+                    <i class="ri-wifi-line text-4xl text-blue-600 block mb-4"></i>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">WiFi - LAN Installation</h3>
+                    <p class="text-gray-600 text-sm">Setup and troubleshooting for WiFi and LAN connections.</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg card-hover slide-in-left hover-lift stagger-3" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-center justify-center mb-6 service-icon">
-                        <i class="ri-database-line text-4xl text-purple-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Data Compliance & Backup</h3>
-                    <p class="text-gray-600">
-                        Guidance to implement a data compliance program, configuration of systems to meet compliance requirements, support for developing a backup strategy and disaster recovery plan, and automatic and secure backup of systems and data.
-                    </p>
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg border border-gray-100" id="printer">
+                    <i class="ri-printer-line text-4xl text-blue-600 block mb-4"></i>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Printer Installation</h3>
+                    <p class="text-gray-600 text-sm">Installation and configuration of all types of printers.</p>
+                </div>
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg border border-gray-100" id="smartphones">
+                    <i class="ri-smartphone-line text-4xl text-blue-600 block mb-4"></i>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Smart Phones</h3>
+                    <p class="text-gray-600 text-sm">Quick repair services for your smartphones and devices.</p>
+                </div>
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg border border-gray-100" id="camera">
+                    <i class="ri-camera-line text-4xl text-blue-600 block mb-4"></i>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Camera</h3>
+                    <p class="text-gray-600 text-sm">Camera setup, lens cleaning, and issue resolution.</p>
+                </div>
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg border border-gray-100" id="tablets">
+                    <i class="ri-tablet-line text-4xl text-blue-600 block mb-4"></i>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Tablets</h3>
+                    <p class="text-gray-600 text-sm">Fixing software & hardware issues for tablets.</p>
+                </div>
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg border border-gray-100" id="tv">
+                    <i class="ri-tv-line text-4xl text-blue-600 block mb-4"></i>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">TV Mounting</h3>
+                    <p class="text-gray-600 text-sm">Professional TV mounting and installation services.</p>
+                </div>
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg border border-gray-100" id="console">
+                    <i class="ri-gamepad-line text-4xl text-blue-600 block mb-4"></i>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Game Console</h3>
+                    <p class="text-gray-600 text-sm">Repair and maintenance for gaming consoles.</p>
+                </div>
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg border border-gray-100" id="homeappliance">
+                    <i class="ri-home-gear-line text-4xl text-blue-600 block mb-4"></i>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Home Appliance</h3>
+                    <p class="text-gray-600 text-sm">Repair solutions for major home appliances.</p>
+                </div>
+                <div class="service-card bg-white p-6 rounded-xl shadow-lg border border-gray-100" id="smallappliances">
+                    <i class="ri-tools-line text-4xl text-blue-600 block mb-4"></i>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Small Appliances</h3>
+                    <p class="text-gray-600 text-sm">Fast fixes for small household appliances.</p>
                 </div>
             </div>
-            <div class="text-center mt-12">
-                <p class="text-gray-600 mb-4">
-                    Plus, transparent, flat pricing – learn more. Enterprise services (support for product or software), network, email and data migrations also available – contact us for details.
-                </p>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="Choose-US" class="py-16 md:py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12" data-aos="fade-up">Why Choose Geek Expert LLC</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12" data-aos="fade-up">Three reasons we stand out for your repair and support needs.</p>
+            <div class="cards-container">
+                <div class="card bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-box w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
+                        <i class="ri-customer-service-2-line text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">24/7 Support</h3>
+                    <p class="text-gray-600 text-sm">Our team is available round the clock to assist you with any network issues you may face.</p>
+                </div>
+                <div class="card bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="150">
+                    <div class="icon-box w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
+                        <i class="ri-team-line text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Top Guide</h3>
+                    <p class="text-gray-600 text-sm">Step-by-step expert guidance to troubleshoot Wi-Fi and LAN problems efficiently.</p>
+                </div>
+                <div class="card bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
+                        <i class="ri-signal-wifi-3-line text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">LAN Connectivity Fix</h3>
+                    <p class="text-gray-600 text-sm">Check the Ethernet cables and ports. Replace any damaged cables, and ensure the cables are securely connected to the ports.</p>
+                </div>
+                <div class="card bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="250">
+                    <div class="icon-box w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
+                        <i class="ri-error-warning-fill text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Advanced Troubleshooting</h3>
+                    <p class="text-gray-600 text-sm">Use command-line tools like "ping" or "tracert" to diagnose network issues. Consider using a Wi-Fi analyzer app for signal interference.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ask Us Anything - Help Section -->
+    <section class="help-section py-16 md:py-20 bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="help-text" data-aos="fade-right">
+            <h4 class="text-lg font-semibold text-gray-600 mb-2">We Have An Amazing <span class="help-highlight">Service</span></h4>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Ask Us Anything</h1>
+            <p class="text-gray-600 mb-6 max-w-md">The Experts at Geek Expert LLC are ready to answer your questions, day or night.</p>
+            <a href="#contact-form" class="help-btn">See More</a>
+        </div>
+        <div class="help-content" data-aos="fade-left">
+            <div class="help-grid">
+                <div class="help-card bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
+                    <div class="help-icon w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mx-auto mb-3"><i class="ri-tools-line text-2xl text-blue-600"></i></div>
+                    <h3 class="font-bold text-gray-900 text-sm">Appliance Repair</h3>
+                </div>
+                <div class="help-card bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
+                    <div class="help-icon w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mx-auto mb-3"><i class="ri-computer-line text-2xl text-blue-600"></i></div>
+                    <h3 class="font-bold text-gray-900 text-sm">Computers & Tablets</h3>
+                </div>
+                <div class="help-card bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
+                    <div class="help-icon w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mx-auto mb-3"><i class="ri-printer-line text-2xl text-blue-600"></i></div>
+                    <h3 class="font-bold text-gray-900 text-sm">Printers</h3>
+                </div>
+                <div class="help-card bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
+                    <div class="help-icon w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mx-auto mb-3"><i class="ri-wifi-line text-2xl text-blue-600"></i></div>
+                    <h3 class="font-bold text-gray-900 text-sm">Wi-Fi & Networking</h3>
+                </div>
+                <div class="help-card bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
+                    <div class="help-icon w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mx-auto mb-3"><i class="ri-tv-2-line text-2xl text-blue-600"></i></div>
+                    <h3 class="font-bold text-gray-900 text-sm">TV Installation</h3>
+                </div>
+                <div class="help-card bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
+                    <div class="help-icon w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mx-auto mb-3"><i class="ri-camera-line text-2xl text-blue-600"></i></div>
+                    <h3 class="font-bold text-gray-900 text-sm">Cameras & Camcorders</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why you'll love Geek Expert LLC -->
+    <section class="choose-us-section py-16 md:py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="choose-us-subtitle text-blue-600 font-semibold text-sm uppercase tracking-wide text-center mb-2">Geek Expert LLC</p>
+            <h2 class="choose-us-title text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12" data-aos="fade-up">Why you'll love Geek Expert LLC ?</h2>
+            <div class="choose-us-container">
+                <div class="choose-card bg-white rounded-xl p-6 shadow-lg border border-gray-100 relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="choose-icon icon-red w-14 h-14 rounded-xl flex items-center justify-center mb-4"><i class="ri-file-shield-2-line text-3xl"></i></div>
+                    <div class="choose-number text-4xl font-bold text-gray-200 absolute top-4 right-4">01</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Experienced & Verified Technicians</h3>
+                    <p class="text-gray-600 text-sm">Our team follows a multi-step quality process, ensuring experience and reliability you can trust.</p>
+                </div>
+                <div class="choose-card bg-white rounded-xl p-6 shadow-lg border border-gray-100 relative overflow-hidden" data-aos="fade-up" data-aos-delay="150">
+                    <div class="choose-icon icon-blue w-14 h-14 rounded-xl flex items-center justify-center mb-4"><i class="ri-service-line text-3xl"></i></div>
+                    <div class="choose-number text-4xl font-bold text-gray-200 absolute top-4 right-4">02</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Service that's tailored to you</h3>
+                    <p class="text-gray-600 text-sm">Discuss your individual situation with an Expert who specializes in your topic, 24/7.</p>
+                </div>
+                <div class="choose-card bg-white rounded-xl p-6 shadow-lg border border-gray-100 relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="choose-icon icon-green w-14 h-14 rounded-xl flex items-center justify-center mb-4"><i class="ri-hourglass-2-line text-3xl"></i></div>
+                    <div class="choose-number text-4xl font-bold text-gray-200 absolute top-4 right-4">03</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Save valuable time at home</h3>
+                    <p class="text-gray-600 text-sm">Connect from any device. No driving across town or wasted time in the waiting room.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -611,7 +762,7 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
             <h2 class="text-3xl md:text-4xl font-bold mb-4">Get Unlimited IT Support</h2>
             <p class="text-xl mb-8 opacity-90">Starting at $75/month per user • Minimum of 3 users</p>
-            <a href="#contact-form" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+            <a href="#contact-form" class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300">
                 Schedule your FREE consultation!
             </a>
         </div>
@@ -1082,162 +1233,35 @@
             </div>
 
             <div class="text-center mt-12" data-aos="fade-up">
-                <a href="pricing.html" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                <a href="pricing.html" class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300">
                     Learn More About Pricing
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section class="py-20 bg-white">
+    <!-- Who we are -->
+    <div class="info py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
-                <!-- 60% Content with parallax background -->
-                <div class="lg:col-span-3 relative overflow-hidden rounded-2xl min-h-[280px] lg:min-h-[320px]" data-aos="fade-right">
-                    <div class="absolute inset-0 opacity-75 about-parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80');"></div>
-                    <div class="absolute inset-0 bg-white/80"></div>
-                    <div class="relative z-10 p-6 lg:p-8">
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                            About Us
-                        </h2>
-                        <p class="text-lg text-gray-700 leading-relaxed">
-                            From startups to Fortune 500 companies, one aspect they all have in common is the need for quality reliable IT support. GeekSupport provides best-in-class, fully remote, IT Support and Tech Services for startups, small and mid-size companies, and self-employed professionals. We offer comprehensive plans to meet different business needs plus access to our custom software platform to keep your business running optimally and securely.
-                        </p>
+            <section class="section" id="Who-we-are">
+                <div class="section-left" data-aos="fade-right">
+                    <img src="IMAGE/logo.png" alt="Geek Expert LLC" class="w-full max-w-md rounded-2xl shadow-lg object-cover">
+                    <div class="caption mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                        <strong class="text-gray-800">Geek In House is your go-to for expert gadget and electronics help.</strong>
                     </div>
                 </div>
-                
-                <!-- 40% Content -->
-                <div class="lg:col-span-2" data-aos="fade-left">
-                    <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 shadow-lg">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">
-                            Why Choose GeekSupport?
-                        </h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-4">
-                                <div class="flex items-center justify-center flex-shrink-0">
-                                    <i class="ri-check-line text-blue-600 text-2xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-900 mb-1">Fully Remote Support</h4>
-                                    <p class="text-gray-600 text-sm">Best-in-class remote IT services</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <div class="flex items-center justify-center flex-shrink-0">
-                                    <i class="ri-check-line text-purple-600 text-2xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-900 mb-1">Custom Software Platform</h4>
-                                    <p class="text-gray-600 text-sm">Access to our proprietary tools</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <div class="flex items-center justify-center flex-shrink-0">
-                                    <i class="ri-check-line text-blue-600 text-2xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-900 mb-1">Comprehensive Plans</h4>
-                                    <p class="text-gray-600 text-sm">Tailored to your business needs</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <div class="flex items-center justify-center flex-shrink-0">
-                                    <i class="ri-check-line text-purple-600 text-2xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-900 mb-1">All Business Sizes</h4>
-                                    <p class="text-gray-600 text-sm">From startups to Fortune 500</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="section-right" data-aos="fade-left">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Who we are?</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Geek Expert LLC is a comprehensive technology and appliance repair service provider serving a wide range of electronic equipment and devices. Specialization: Computers & Tablets, Mobile Phones, Printers, Wi-Fi & Networking, TV & Home Cinema, Video Games & Entertainment, Cameras & Camcorders, Smart Home, Home Security, Drones, Audio & Video, TV Installation, Big Appliance, Small Appliance & Moreover, Repair Appliance strives to meet the various repair service needs of its customers.
+                    </p>
+                    <p class="highlight text-gray-700 leading-relaxed">
+                        One of the notable features of Geek Expert LLC is its commitment to fast and efficient service. Customers can conveniently book appointments for repair, installation, troubleshooting or equipment collection. Geek Expert LLC also emphasizes the importance of customer interaction. In addition to repair services, they offer protection plans to protect devices from potential damage.
+                    </p>
                 </div>
-            </div>
+            </section>
         </div>
-    </section>
-
-    <!-- Why Businesses Choose GeekSupport -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-14" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    Why Businesses Choose GeekSupport
-                </h2>
-                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-                    Smarter IT support. Built for modern teams.
-                </p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-blue-100 transition-all duration-300 card-hover" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                            <i class="ri-check-line text-blue-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-gray-900 mb-2">No Long-Term Lock-ins</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">Flexible plans that grow with your business — cancel anytime.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-blue-100 transition-all duration-300 card-hover" data-aos="fade-up" data-aos-delay="150">
-                    <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                            <i class="ri-check-line text-blue-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-gray-900 mb-2">Simple, Transparent Pricing</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">Clear flat-rate plans with zero hidden charges.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-blue-100 transition-all duration-300 card-hover">
-                    <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                            <i class="ri-check-line text-blue-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-gray-900 mb-2">Rapid Response, Real Experts</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">Fast remote support from experienced IT specialists.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-blue-100 transition-all duration-300 card-hover" data-aos="fade-up" data-aos-delay="250">
-                    <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                            <i class="ri-check-line text-blue-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-gray-900 mb-2">Certified IT Specialists</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">Skilled, vetted professionals with proven industry experience.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-blue-100 transition-all duration-300 card-hover">
-                    <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                            <i class="ri-check-line text-blue-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-gray-900 mb-2">Enterprise-Level Security</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">Business-grade protection to keep your systems and data safe.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-blue-100 transition-all duration-300 card-hover" data-aos="fade-up" data-aos-delay="350">
-                    <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                            <i class="ri-check-line text-blue-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-gray-900 mb-2">Modern Tools & Automation</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">Powered by the latest technology to work faster and smarter.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- Industries Section -->
     <section class="py-16 relative overflow-hidden">
@@ -1463,7 +1487,7 @@
 
                     <div class="text-center">
                         <button type="submit" id="submitBtn"
-                                class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed">
+                                class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed">
                             <span id="btnText">Send Message</span>
                             <i class="ri-loader-4-line animate-spin ml-2 hidden" id="loadingIcon"></i>
                         </button>
@@ -1587,12 +1611,12 @@
                 
                 <!-- CTA Buttons -->
                 <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4">
-                    <a href="#contact-form" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-200 inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105">
+                    <a href="#contact-form" class="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-200 inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105">
                         <span>Contact Us</span>
                         <i class="ri-arrow-right-line text-sm"></i>
                     </a>
                     
-                    <a href="tel:18552426660" class="w-full sm:w-auto bg-transparent border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold text-sm hover:bg-blue-600 hover:text-white transition-all duration-200 inline-flex items-center justify-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105">
+                    <a href="tel:18552426660" class="w-full sm:w-auto bg-transparent border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold text-sm hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:border-transparent transition-all duration-200 inline-flex items-center justify-center gap-2 shadow-md hover:shadow-lg transform hover:scale-105">
                         <i class="ri-phone-line"></i>
                         <span>1-855-242-6660</span>
                     </a>
@@ -1737,8 +1761,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 footer-content">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
                 <div>
-                    <a href="#hero" class="inline-block mb-3 focus:outline-none" aria-label="GeekSupport Home">
-                        <img src="IMAGE/logo.png" alt="GeekSupport" class="h-8 sm:h-9 w-auto max-h-10 object-contain object-left block" />
+                    <a href="#hero" class="inline-block mb-3 focus:outline-none" aria-label="Geek Support LLC Home">
+                        <img src="IMAGE/logo.png" alt="Geek Support LLC" class="h-14 sm:h-16 w-auto max-h-20 object-contain object-left block" width="240" height="75" loading="lazy" />
+                        <span class="text-[10px] sm:text-xs font-medium bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent mt-0.5 tracking-wide block">GeekSupport LLC</span>
                     </a>
                     <p class="text-gray-300 mb-0 text-sm leading-relaxed">
                         Your trusted partner for comprehensive IT support. We deliver reliable, secure, and efficient technology solutions to help your business thrive.
@@ -1768,7 +1793,7 @@
                         </div>
                         <div class="flex items-center">
                             <i class="ri-mail-line text-blue-400 mr-3"></i>
-                            <span class="text-gray-300">support@geeksupport.com</span>
+                            <a href="mailto:support@geekexpertllc.com" class="text-gray-300 hover:text-white transition-colors">support@geekexpertllc.com</a>
                         </div>
                         <div class="flex items-start">
                             <i class="ri-map-pin-line text-blue-400 mr-3 mt-0.5"></i>
@@ -1816,7 +1841,7 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 z-50">
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white w-12 h-12 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 z-50">
         <i class="ri-arrow-up-line"></i>
     </button>
 
@@ -1887,7 +1912,7 @@
                     <span class="error-text"></span>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-3 pt-2">
-                    <button type="submit" id="submitBtnPopup" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors disabled:opacity-50">
+                    <button type="submit" id="submitBtnPopup" class="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 disabled:opacity-50">
                         <span id="btnTextPopup">Send Message</span>
                         <i class="ri-loader-4-line animate-spin ml-2 hidden" id="loadingIconPopup"></i>
                     </button>
